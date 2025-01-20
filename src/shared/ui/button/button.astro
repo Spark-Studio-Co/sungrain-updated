@@ -1,0 +1,41 @@
+---
+interface BaseProps {
+    label: string;
+    className?: string;
+}
+
+interface DefaultButtonProps extends BaseProps {
+    buttonType?: "default";
+    [key: string]: any;
+}
+
+interface LinkButtonProps extends BaseProps {
+    buttonType: "link";
+    href: string;
+    [key: string]: any;
+}
+
+type Props = DefaultButtonProps | LinkButtonProps;
+
+const {
+    buttonType = "default",
+    label,
+    className = "",
+    href,
+    ...rest
+} = Astro.props;
+
+const baseClassName = `${className} rounded-[32px] bg-primary py-[15px] px-[26px] text-white font-montserrat font-[500] text-[16px]`;
+---
+
+{
+    buttonType === "link" ? (
+        <a href={href} class={baseClassName} {...rest}>
+            {label}
+        </a>
+    ) : (
+        <button class={baseClassName} {...rest}>
+            {label}
+        </button>
+    )
+}

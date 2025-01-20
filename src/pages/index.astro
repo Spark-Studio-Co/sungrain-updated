@@ -1,0 +1,14 @@
+---
+import Layout from "../layouts/main-layout.astro";
+import { Header } from "../features/navigation/ui/header";
+
+//sections
+import HeroSection from "../features/hero/ui/hero-section.astro";
+import AboutSection from "../features/about/ui/about-section.astro";
+---
+
+<Layout>
+	<Header client:load />
+	<HeroSection />
+	<AboutSection />
+</Layout>

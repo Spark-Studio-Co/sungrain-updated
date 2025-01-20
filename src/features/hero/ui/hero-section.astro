@@ -1,0 +1,33 @@
+---
+import Heading from "../../../shared/ui/heading/heading.astro";
+import Paragraph from "../../../shared/ui/paragraph/paragraph.astro";
+import Button from "../../../shared/ui/button/button.astro";
+
+import wheat from "../../../../public/images/wheat.webp";
+---
+
+<section class="flex items-start flex-col mt-16 relative">
+    <Heading
+        text="качественное зерно c"
+        orangeText="sungrain"
+        level={1}
+        className=""
+    />
+    <Paragraph
+        className="mt-4"
+        text="Честность – наш принцип. С Sun Grain вы получаете качественное зерно и прозрачные условия. Мы строим бизнес на доверии, чтобы вы выбирали лучшее. SunGrain – по-настоящему честный бизнес."
+    />
+    <Button
+        label="Связаться с нами"
+        className="mt-8"
+        buttonType="link"
+        href="/contact"
+    />
+    <div class="w-full h-[240px]">
+        <img
+            src={wheat.src}
+            alt="Wheat"
+            class="w-[586px] h-[310px] object-contain absolute -left-28"
+        />
+    </div>
+</section>
