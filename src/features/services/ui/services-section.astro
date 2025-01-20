@@ -1,0 +1,39 @@
+---
+import Subtitle from "../../../shared/ui/subtitle/subtitle.astro";
+import Heading from "../../../shared/ui/heading/heading.astro";
+import Paragraph from "../../../shared/ui/paragraph/paragraph.astro";
+import ServiceCard from "./service-card.astro";
+
+import services01 from "../../../../public/images/services01.webp";
+import { serviceCardContent } from "../model/service-card-content";
+---
+
+<div class="relative left-[50%] right-[50%] -mx-[50vw] w-screen">
+    <section
+        class="flex items-start flex-col mt-16 relative bg-cover bg-center bg-no-repeat max-h-[890px]"
+        style={`background-image: url(${services01.src})`}
+    >
+        <div class="absolute inset-0 bg-[#F3881080]"></div>
+        <div class="relative z-10 w-[86%] mx-auto py-16">
+            <Subtitle
+                text="Ознакомьтесь со списком наших услуг"
+                className="text-white"
+            />
+            <Heading
+                text="Мы предоставляем услуги высшего качества"
+                level={4}
+                className="mt-3 text-white"
+            />
+            <Paragraph
+                className="mt-8 mb-8 text-white text-[18px]"
+                text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vitae venenatis arcu. Ut justo arcu, ullamcorper vel tellus ut, semper volutpat lorem. Morbi et bibendum nibh."
+            />
+            <span class="font-montserrat font-[500] text-[18px] text-white"
+                >Связаться с нами</span
+            >
+            <div class="mt-8 flex flex-col items-center gap-8">
+                {serviceCardContent.map((card) => <ServiceCard {...card} />)}
+            </div>
+        </div>
+    </section>
+</div>

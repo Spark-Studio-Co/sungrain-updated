@@ -2,14 +2,23 @@
 import Subtitle from "../../../shared/ui/subtitle/subtitle.astro";
 import Heading from "../../../shared/ui/heading/heading.astro";
 import Paragraph from "../../../shared/ui/paragraph/paragraph.astro";
-import Button from "../../../shared/ui/button/button.astro";
+import AboutCard from "./about-card.astro";
+
+import { aboutCardsContent } from "../model/cards-content";
 ---
 
-<section class="flex items-start flex-col mt-16">
+<section class="flex flex-col mt-16">
     <Subtitle text="Различные виды культур" />
     <Heading text="О" orangeText="sun grain" level={2} className="mt-3" />
     <Paragraph
-        className="mt-8"
+        className="mt-8 mb-16"
         text="Честность – наш принцип. С SunGrain вы получаете качественное зерно и прозрачные условия. Мы строим бизнес на доверии, чтобы вы выбирали лучшее. SunGrain – по-настоящему честный бизнес."
     />
+    <div class="flex flex-col justify-center items-center gap-8">
+        {
+            aboutCardsContent.map(({ image, title, text }) => (
+                <AboutCard image={image} title={title} text={text} />
+            ))
+        }
+    </div>
 </section>

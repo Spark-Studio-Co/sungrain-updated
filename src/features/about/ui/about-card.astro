@@ -1,0 +1,33 @@
+---
+import Button from "../../../shared/ui/button/button.astro";
+
+interface Props {
+    image: string;
+    title: string;
+    text: string;
+}
+
+const { image, title, text } = Astro.props;
+---
+
+<div
+    class="flex flex-col items-start w-full h-[476px] rounded-[20px]"
+    style={{ boxShadow: "0px 4px 20px 0px #0000000D" }}
+>
+    <img
+        src={image}
+        alt="Image"
+        class="w-[333px] h-[200px] object-cover rounded-t-[20px]"
+    />
+    <div class="flex flex-col items-start mt-8 px-4">
+        <span class="font-unisans font-[900] text-[28px] text-primary"
+            >{`${title}`}</span
+        >
+        <p
+            class="mt-4 font-gotham font-[400] text-[14px] leading-[20px] text-secondary"
+        >
+            {text}
+        </p>
+        <Button label="Подробнее" className="mt-4" variant="outline" />
+    </div>
+</div>

@@ -1,0 +1,33 @@
+---
+import Subtitle from "../../../shared/ui/subtitle/subtitle.astro";
+import Heading from "../../../shared/ui/heading/heading.astro";
+import Paragraph from "../../../shared/ui/paragraph/paragraph.astro";
+import ListItem from "./list-item.astro";
+
+import { listContent } from "../model/list-content";
+
+import principles01 from "../../../../public/images/principles01.webp";
+---
+
+<section class="flex items-end flex-col mt-16">
+    <Subtitle text="10 лет опыта на Рынке" />
+    <Heading
+        text="Честность и качество в каждом зерне!"
+        level={3}
+        className="mt-3 text-end"
+    />
+    <Paragraph
+        className="mt-8 mb-4 text-end"
+        text="Честность – наш принцип. С SunGrain вы получаете качественное зерно и прозрачные условия. Мы строим бизнес на доверии, чтобы вы выбирали лучшее. SunGrain – по-настоящему честный бизнес."
+    />
+    <div class="flex flex-col gap-4">
+        {listContent.map(({ text }) => <ListItem text={text} />)}
+    </div>
+    <div class="w-full h-[150px] relative">
+        <img
+            src={principles01.src}
+            alt="Wheat"
+            class="w-full h-auto object-contain scale-x-[-1] -left-10 mt-2 absolute"
+        />
+    </div>
+</section>

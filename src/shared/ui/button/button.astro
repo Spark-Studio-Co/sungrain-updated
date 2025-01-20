@@ -2,6 +2,7 @@
 interface BaseProps {
     label: string;
     className?: string;
+    variant?: "default" | "outline";
 }
 
 interface DefaultButtonProps extends BaseProps {
@@ -21,11 +22,15 @@ const {
     buttonType = "default",
     label,
     className = "",
+    variant = "default",
     href,
     ...rest
 } = Astro.props;
 
-const baseClassName = `${className} rounded-[32px] bg-primary py-[15px] px-[26px] text-white font-montserrat font-[500] text-[16px]`;
+const baseClassName =
+    variant === "outline"
+        ? `${className} rounded-[32px] h-[50px] w-[200px] flex items-center justify-center border border-primary text-primary font-montserrat font-[500] text-[16px]`
+        : `${className} rounded-[32px] bg-primary h-[50px] w-[200px] flex items-center justify-center text-white font-montserrat font-[500] text-[16px]`;
 ---
 
 {
