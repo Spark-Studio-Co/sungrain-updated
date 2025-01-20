@@ -2,6 +2,7 @@
 import Heading from "../../../shared/ui/heading/heading.astro";
 import Paragraph from "../../../shared/ui/paragraph/paragraph.astro";
 import Button from "../../../shared/ui/button/button.astro";
+import Image from "astro/components/Image.astro";
 
 import wheat from "../../../../public/images/wheat.webp";
 ---
@@ -24,8 +25,8 @@ import wheat from "../../../../public/images/wheat.webp";
         href="/contact"
     />
     <div class="w-full h-[240px]">
-        <img
-            src={wheat.src}
+        <Image
+            src={wheat}
             alt="Wheat"
             class="w-[586px] h-[310px] object-contain absolute -left-28"
         />

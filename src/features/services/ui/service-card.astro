@@ -16,21 +16,22 @@ const { icon: Icon, title, text } = Astro.props;
 ---
 
 <div
-    class="flex flex-col items-center w-full bg-white h-[305px] rounded-[16px] py-[18px] px-[20px]"
+    class="flex flex-col items-center w-full bg-white h-[19rem] rounded-[16px] py-5 px-6"
     style={{ boxShadow: "0px 16px 32px 0px #0000000F" }}
 >
     <div class="flex flex-row items-center justify-between w-full">
         <div
-            class="w-[85.75px] h-[85.75px] bg-[#F3881033] rounded-full flex items-center justify-center"
+            class="w-20 h-20 bg-[#F3881033] rounded-full flex items-center justify-center"
         >
             <Icon size={40} color="#F38810" className="text-primary" />
         </div>
-        <span class="font-gotham font-[700] text-[32px] text-primary"
+        <span
+            class="font-gotham font-[700] text-[1.6rem] text-primary whitespace-nowrap"
             >{title}</span
         >
     </div>
     <p
-        class="font-gotham font-[400] text-[14px] leading-[28px] text-secondary mt-8 self-center"
+        class="w-full font-gotham font-[400] text-[14px] leading-[25px] text-secondary mt-6 self-center"
     >
         {text}
     </p>

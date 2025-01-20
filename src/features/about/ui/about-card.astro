@@ -1,8 +1,10 @@
 ---
 import Button from "../../../shared/ui/button/button.astro";
+import Image from "astro/components/Image.astro";
+import type { ImageMetadata } from "astro";
 
 interface Props {
-    image: string;
+    image: ImageMetadata;
     title: string;
     text: string;
 }
@@ -14,7 +16,7 @@ const { image, title, text } = Astro.props;
     class="flex flex-col items-start w-full h-[476px] rounded-[20px]"
     style={{ boxShadow: "0px 4px 20px 0px #0000000D" }}
 >
-    <img
+    <Image
         src={image}
         alt="Image"
         class="w-[333px] h-[200px] object-cover rounded-t-[20px]"

@@ -3,6 +3,7 @@ import Subtitle from "../../../shared/ui/subtitle/subtitle.astro";
 import Heading from "../../../shared/ui/heading/heading.astro";
 import Paragraph from "../../../shared/ui/paragraph/paragraph.astro";
 import ListItem from "./list-item.astro";
+import Image from "astro/components/Image.astro";
 
 import { listContent } from "../model/list-content";
 
@@ -24,8 +25,8 @@ import principles01 from "../../../../public/images/principles01.webp";
         {listContent.map(({ text }) => <ListItem text={text} />)}
     </div>
     <div class="w-full h-[150px] relative">
-        <img
-            src={principles01.src}
+        <Image
+            src={principles01}
             alt="Wheat"
             class="w-full h-auto object-contain scale-x-[-1] -left-10 mt-2 absolute"
         />
