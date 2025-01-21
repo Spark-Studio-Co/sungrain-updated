@@ -1,5 +1,3 @@
-import type { SVGProps } from "react";
-
 interface ILogoProps {
     width?: number;
     height?: number;
@@ -9,7 +7,7 @@ export const LogoIcon = ({ width = 60, height = 72 }: ILogoProps) => (
     <svg
         width={width}
         height={height}
-        viewBox={`0 0 ${width} ${height}`}
+
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
     >

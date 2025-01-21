@@ -13,6 +13,9 @@ export default {
 				'montserrat': ['Montserrat', 'sans-serif'],
 				'unisans': ['Uni Sans', 'sans-serif'],
 			},
+			screens: {
+				"3xl": "1700px",
+			},
 		},
 	},
 	plugins: [],

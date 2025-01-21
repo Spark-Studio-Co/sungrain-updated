@@ -7,28 +7,25 @@ import Image from "astro/components/Image.astro";
 import wheat from "../../../../public/images/wheat.webp";
 ---
 
-<section class="flex items-start flex-col mt-16 relative">
-    <Heading
-        text="качественное зерно c"
-        orangeText="sungrain"
-        level={1}
-        className=""
-    />
-    <Paragraph
-        className="mt-4"
-        text="Честность – наш принцип. С Sun Grain вы получаете качественное зерно и прозрачные условия. Мы строим бизнес на доверии, чтобы вы выбирали лучшее. SunGrain – по-настоящему честный бизнес."
-    />
-    <Button
-        label="Связаться с нами"
-        className="mt-8"
-        buttonType="link"
-        href="#contacts"
-    />
+<section class="flex items-start flex-col lg:flex-row mt-16 relative">
+    <div class="flex flex-col items-start">
+        <Heading text="качественное зерно c" orangeText="sungrain" level={1} />
+        <Paragraph
+            className="mt-4"
+            text="Честность – наш принцип. С Sun Grain вы получаете качественное зерно и прозрачные условия. Мы строим бизнес на доверии, чтобы вы выбирали лучшее. SunGrain – по-настоящему честный бизнес."
+        />
+        <Button
+            label="Связаться с нами"
+            className="mt-8"
+            buttonType="link"
+            href="#contacts"
+        />
+    </div>
     <div class="w-full relative h-[240px] mt-4">
         <Image
             src={wheat}
             alt="Wheat"
-            class="object-contain absolute -left-40 max-w-[486px] max-h-[310px]"
+            class="object-contain absolute -left-40 lg:-left-0 lg:-right-40 lg:scale-x-[-1] max-h-[310px]"
             width={486}
             height={310}
         />

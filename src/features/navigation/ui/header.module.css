@@ -1,0 +1,26 @@
+.header__link {
+  position: relative;
+  display: inline-block;
+  color: #223137;
+  font-weight: 400;
+  transition: color 0.3s ease;
+  @apply font-gotham;
+}
+
+
+.header__link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+  color: #FCBD20;
+}
+
+.header__link:hover::after {
+  width: 100%;
+  color: #FCBD20;
+}

@@ -3,12 +3,7 @@ import { gsap } from "gsap"
 import { useMenuStore } from "../model/menu-store"
 import { useBurgerMenuStore } from "../model/burger-menu-store"
 
-const menuItems = [
-    { label: "О нас", href: "#about" },
-    { label: "Наши принципы", href: "#principles" },
-    { label: "Услуги", href: "#services" },
-    { label: "Контакты", href: "#contacts" },
-]
+import { links } from "../model/links"
 
 export const Menu = () => {
     const menuRef = useRef<HTMLDivElement>(null)
@@ -89,14 +84,14 @@ export const Menu = () => {
             className="absolute inset-0 bg-background translate-y-[-100%] bg-white z-40 flex items-center justify-center overflow-hidden"
         >
             <nav className="text-center">
-                {menuItems.map((item) => (
+                {links.map((link) => (
                     <a
-                        key={item.href}
-                        href={item.href}
+                        key={link.href}
+                        href={link.href}
                         className="menu-item block text-3xl font-bold mb-8 z-40 text-primary"
                         onClick={handleLinkClick}
                     >
-                        {item.label}
+                        {link.label}
                     </a>
                 ))}
             </nav>
