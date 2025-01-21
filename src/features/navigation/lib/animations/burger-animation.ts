@@ -1,8 +1,8 @@
 import gsap from "gsap";
-import { useEffect } from "react";
-import type { RefObject } from "react";
-
 import { useBurgerMenuStore } from "../../model/burger-menu-store";
+
+import type { RefObject } from "react";
+import { useEffect } from "react";
 
 export const useBurgerAnimation = (
     lineRef1: RefObject<HTMLSpanElement | null>,
@@ -19,38 +19,37 @@ export const useBurgerAnimation = (
                 rotate: 45,
                 y: 8,
                 duration: 0.3,
-                transformOrigin: "center",
+                transformOrigin: "center center",
             });
             gsap.to(lineRef2.current, {
                 opacity: 0,
-                duration: 0.3,
+                duration: 0.2,
             });
             gsap.to(lineRef3.current, {
                 rotate: -45,
                 y: -8,
                 duration: 0.3,
-                transformOrigin: "center",
+                transformOrigin: "center center",
             });
         } else {
             gsap.to(lineRef1.current, {
                 rotate: 0,
                 y: 0,
                 duration: 0.3,
-                transformOrigin: "center",
+                transformOrigin: "center center",
             });
             gsap.to(lineRef2.current, {
                 opacity: 1,
-                duration: 0.3,
+                duration: 0.2,
             });
             gsap.to(lineRef3.current, {
                 rotate: 0,
                 y: 0,
                 duration: 0.3,
-                transformOrigin: "center",
+                transformOrigin: "center center",
             });
         }
     }, [isOpen, lineRef1, lineRef2, lineRef3]);
-
 
     return { toggleMenu, isOpen };
 };

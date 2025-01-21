@@ -10,8 +10,8 @@ import { listContent } from "../model/list-content";
 import principles01 from "../../../../public/images/principles01.webp";
 ---
 
-<section class="flex items-end flex-col mt-16">
-    <Subtitle text="10 лет опыта на Рынке" />
+<section class="flex items-end flex-col mt-16" id="principles">
+    <Subtitle text="10 лет опыта на Рынке" className="text-[#D25127]" />
     <Heading
         text="Честность и качество в каждом зерне!"
         level={3}
@@ -24,11 +24,13 @@ import principles01 from "../../../../public/images/principles01.webp";
     <div class="flex flex-col gap-4">
         {listContent.map(({ text }) => <ListItem text={text} />)}
     </div>
-    <div class="w-full h-[150px] relative">
+    <div class="w-full relative h-[170px] mt-8">
         <Image
             src={principles01}
-            alt="Decorative wheat illustration"
-            class="w-full h-auto object-contain scale-x-[-1] -left-10 mt-2 absolute"
+            alt="Wheat"
+            class="object-contain scale-x-[-1] absolute -left-10 sm:-left-20 max-w-[360px] max-h-[196px]"
+            width={360}
+            height={196}
         />
     </div>
 </section>

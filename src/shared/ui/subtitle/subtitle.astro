@@ -7,8 +7,6 @@ interface Props {
 const { text, className = "" } = Astro.props;
 ---
 
-<span
-    class={`${className} font-gotham font-[400] text-[16px] leading-[28px] text-secondary`}
->
+<span class={`${className} font-gotham font-[400] text-[16px] leading-[28px]`}>
     {text}
 </span>

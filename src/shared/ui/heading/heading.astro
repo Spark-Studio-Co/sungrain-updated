@@ -11,7 +11,7 @@ const { text, orangeText = "", level = 1, className = "" } = Astro.props;
 
 <h1
     is={`h${level}`}
-    class={`font-unisans text-secondary font-[900] ${level > 2 ? "text-[32px]" : "text-[40px]"} leading-[48px] ${className}`}
+    class={`font-unisans text-secondary font-[900] w-full sm:w-[380px] ${level > 2 ? "text-[32px]" : "text-[40px]"} leading-[48px] ${className}`}
 >
     {text.toUpperCase()}
     <span class="text-primary">{orangeText.toUpperCase()}</span>

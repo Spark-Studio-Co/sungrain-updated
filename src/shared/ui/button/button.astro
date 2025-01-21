@@ -35,7 +35,7 @@ const baseClassName =
 
 {
     buttonType === "link" ? (
-        <a href={href} class={baseClassName} {...rest}>
+        <a href={href} class:list={[baseClassName, "scroll-smooth"]} onclick="document.querySelector(this.getAttribute('href')).scrollIntoView({behavior: 'smooth'}); return false;">
             {label}
         </a>
     ) : (
