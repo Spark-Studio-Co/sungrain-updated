@@ -44,14 +44,14 @@ const t = useTranslations(lang);
 </div>
 
 <script>
-    import { usePopupStore } from "../model/popup-store";
+    import { useAboutPopupStore } from "../model/popup-store";
 
     document.querySelectorAll("[data-title]").forEach((button) => {
         button.addEventListener("click", (e) => {
             const title = (e.currentTarget as HTMLElement).dataset.title;
             if (title) {
-                const { openPopup } = usePopupStore.getState();
-                openPopup(title);
+                const { openPopup } = useAboutPopupStore.getState();
+                openPopup({ title });
             }
         });
     });

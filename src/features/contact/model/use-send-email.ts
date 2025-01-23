@@ -1,19 +1,14 @@
 import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { useSuccessPopupStore } from "./success-popup-store";
+import { useTranslations } from "../../../i18n/utils";
+import { getLangFromUrl } from "../../../i18n/utils";
 
-const sendFormSchema = z.object({
-  full_name: z
-    .string()
-    .min(2, "Имя должно содержать минимум 2 символа")
-    .max(50, "Имя не должно превышать 50 символов"),
-  phone_number: z
-    .string()
-    .regex(/^\+?[0-9]{10,15}$/, "Пожалуйста, введите корректный номер телефона"),
-});
 
-export type SendFormData = z.infer<typeof sendFormSchema>;
+export interface SendFormData {
+  full_name: string;
+  phone_number: string;
+}
 
 export function useSendEmail() {
   const {
@@ -22,27 +17,41 @@ export function useSendEmail() {
     formState: { errors, isSubmitting },
     reset,
   } = useForm<SendFormData>({
-    resolver: zodResolver(sendFormSchema),
     mode: "onChange",
   });
 
+  const { openPopup } = useSuccessPopupStore();
+  const lang = getLangFromUrl(new URL(window.location.href));
+  const t = useTranslations(lang);
+
   const onSubmit = async (data: SendFormData, event?: React.BaseSyntheticEvent) => {
-    if (event) {
-      event.preventDefault();
+    if (!event) return;
 
-      try {
-        const result = await emailjs.sendForm(
-          "service_wt1ct4g",
-          "template_fqfziii",
-          event.target,
-          "LV9gYtaB2q_9ES1bV"
-        );
+    event.preventDefault();
+    console.log('📨 Starting form submission...', data);
 
-        console.log("Email successfully sent!", result.text);
-        reset();
-      } catch (error: any) {
-        console.error("Failed to send email:", error.text);
-      }
+    setTimeout(() => {
+      openPopup({
+        title: t('contact.success.title'),
+        text: t('contact.success.text'),
+        showLogo: true
+      });
+    }, 1500);
+
+    try {
+      console.log('🚀 Sending email via EmailJS...');
+      await emailjs.sendForm(
+        "service_wt1ct4g",
+        "template_fqfziii",
+        event.target,
+        "LV9gYtaB2q_9ES1bV"
+      );
+      console.log('✅ Email sent successfully!');
+
+      reset();
+      console.log('🔄 Form reset complete');
+    } catch (error) {
+      console.error('❌ Error sending email:', error);
     }
   };
 

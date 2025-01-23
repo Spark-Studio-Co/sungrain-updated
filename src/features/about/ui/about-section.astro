@@ -3,7 +3,7 @@ import Subtitle from "../../../shared/ui/subtitle/subtitle.astro";
 import Heading from "../../../shared/ui/heading/heading.astro";
 import Paragraph from "../../../shared/ui/paragraph/paragraph.astro";
 import AboutCard from "./about-card.astro";
-import { Popup } from "./popup";
+import { AboutPopup } from "./popup";
 import { getLangFromUrl, useTranslations } from "../../../i18n/utils";
 
 import { aboutCardsContent } from "../model/cards-content";
@@ -13,7 +13,7 @@ const t = useTranslations(lang);
 ---
 
 <section
-    class="max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] mx-auto flex flex-col mt-16"
+    class="max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] mx-auto flex flex-col mt-16 lg:mt-40"
     id="about"
 >
     <Subtitle text={t("about.subtitle")} className="text-[#D25127]" />
@@ -33,5 +33,5 @@ const t = useTranslations(lang);
             ))
         }
     </div>
-    <Popup client:only />
+    <AboutPopup client:only />
 </section>

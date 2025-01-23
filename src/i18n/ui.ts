@@ -15,7 +15,7 @@ export const ui = {
         'nav.contact': 'Contact',
 
         'hero.title.mob': 'high-quality grain \nfrom',
-        'hero.title.pc': 'high-quality grain \nfrom TOO',
+        'hero.title.pc': 'high-quality grain \nfrom ',
         'hero.paragraph': 'We offer high-quality grain that can be used for various purposes, from food products to construction.',
 
         // Buttons
@@ -72,6 +72,17 @@ export const ui = {
         'contact.phone': 'Your Phone Number',
         'contact.email': 'Email',
         'contact.message': 'Message',
+        'contact.submit': 'Submit',
+        'contact.name_required': 'Please enter your name',
+        'contact.name_too_short': 'Name must be at least 2 characters long',
+        'contact.phone_required': 'Please enter your phone number',
+        'contact.phone_invalid': 'Please enter a valid phone number',
+        'contact.email_required': 'Please enter your email',
+        'contact.email_invalid': 'Please enter a valid email address',
+        'contact.message_required': 'Please enter your message',
+        'contact.success.title': 'Message sent!',
+        'contact.success.text': 'We will contact you shortly.',
+        'contact.badge': 'SELECTED QUALITY \nGRAIN',
     },
     ru: {
         // Navigation
@@ -136,9 +147,20 @@ export const ui = {
         // Contact Section
         'contact.title': 'свяжитесь с нами \nуже сейчас',
         'contact.description': 'Свяжитесь с нами, если у вас есть вопросы о наших продуктах и услугах. Мы всегда готовы помочь!',
-        'contact.name': 'Ваше имя',
-        'contact.phone': 'Ваш номер телефона',
-        'contact.email': 'Email',
+        'contact.name': 'Ваше Имя',
+        'contact.phone': 'Ваш Номер Телефона',
+        'contact.email': 'Почта',
         'contact.message': 'Сообщение',
+        'contact.submit': 'Отправить',
+        'contact.name_required': 'Пожалуйста, введите ваше имя',
+        'contact.name_too_short': 'Имя должно содержать не менее 2 символов',
+        'contact.phone_required': 'Пожалуйста, введите ваш номер телефона',
+        'contact.phone_invalid': 'Пожалуйста, введите корректный номер телефона',
+        'contact.email_required': 'Пожалуйста, введите вашу почту',
+        'contact.email_invalid': 'Пожалуйста, введите корректную почту',
+        'contact.message_required': 'Пожалуйста, введите ваше сообщение',
+        'contact.success.title': 'Сообщение отправлено!',
+        'contact.success.text': 'Мы свяжемся с вами в ближайшее время.',
+        'contact.badge': 'ЗЕРНО ОТБОРНОГО КАЧЕСТВА',
     },
 } as const;

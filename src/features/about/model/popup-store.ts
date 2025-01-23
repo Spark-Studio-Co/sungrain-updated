@@ -1,21 +1,24 @@
 import { create } from 'zustand';
 
+interface AboutPopupContent {
+    title: string;
+    description?: string;
+}
+
 interface PopupState {
     activePopup: string | null;
-    popupContent: {
-        title: string;
-    } | null;
-    openPopup: (title: string) => void;
+    popupContent: AboutPopupContent | null;
+    openPopup: (content: AboutPopupContent) => void;
     closePopup: () => void;
 }
 
-export const usePopupStore = create<PopupState>((set) => ({
+export const useAboutPopupStore = create<PopupState>((set) => ({
     activePopup: null,
     popupContent: null,
-    openPopup: (title) =>
+    openPopup: (content) =>
         set({
-            activePopup: title,
-            popupContent: { title }
+            activePopup: content.title,
+            popupContent: content
         }),
     closePopup: () =>
         set({

@@ -1,6 +1,6 @@
-import { usePopupStore } from '../model/popup-store';
+import { useAboutPopupStore } from '../model/popup-store';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { getLangFromUrl, useTranslations } from '../../../i18n/utils';
 
 const overlayVariants = {
@@ -34,8 +34,8 @@ const contentVariants = {
     }
 };
 
-export const Popup = () => {
-    const { popupContent, closePopup } = usePopupStore();
+export const AboutPopup = () => {
+    const { popupContent, closePopup } = useAboutPopupStore();
     const popupRef = useRef<HTMLDivElement>(null);
     const lang = getLangFromUrl(new URL(window.location.href));
     const t = useTranslations(lang);
@@ -46,58 +46,44 @@ export const Popup = () => {
         }
     };
 
-    useEffect(() => {
-        if (popupContent) {
-            const scrollY = window.scrollY;
-            document.body.style.position = 'fixed';
-            document.body.style.width = '100%';
-            document.body.style.top = `-${scrollY}px`;
-            document.body.style.overflowY = 'scroll';
-
-            return () => {
-                const scrollY = document.body.style.top;
-                document.body.style.position = '';
-                document.body.style.width = '';
-                document.body.style.top = '';
-                document.body.style.overflowY = '';
-                window.scrollTo(0, parseInt(scrollY || '0') * -1);
-            };
-        }
-    }, [popupContent]);
-
     return (
         <AnimatePresence>
             {popupContent && (
                 <motion.div
-                    className="fixed inset-0 bg-black bg-opacity-50 z-[100] flex items-center justify-center p-4"
+                    className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
+                    variants={overlayVariants}
                     initial="hidden"
                     animate="visible"
                     exit="hidden"
-                    variants={overlayVariants}
                     onClick={handleClick}
                 >
                     <motion.div
                         ref={popupRef}
-                        className="bg-white rounded-[20px] p-6 max-w-[90%] w-[500px] relative"
+                        className="bg-white rounded-2xl p-8 max-w-md w-full"
                         variants={contentVariants}
                         initial="hidden"
                         animate="visible"
                         exit="exit"
                     >
-                        <div className='flex items-center flex-row relative justify-between'>
+                        <div className="flex items-center justify-between mb-6">
+                            <span className="text-2xl font-bold text-primary">
+                                {popupContent.title}
+                            </span>
                             <button
                                 onClick={closePopup}
-                                className="absolute top-1 right-0 text-secondary hover:text-primary transition-colors"
+                                className=" hover:text-primary transition-colors"
                                 aria-label={t('button.close')}
                             >
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                 </svg>
                             </button>
-                            <span className="font-unisans font-[900] text-[28px] text-primary mb-4">
-                                {popupContent.title}
-                            </span>
                         </div>
+                        {popupContent.description && (
+                            <p className="text-gray-600 font-gotham">
+                                {popupContent.description}
+                            </p>
+                        )}
                     </motion.div>
                 </motion.div>
             )}

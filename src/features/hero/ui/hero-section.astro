@@ -6,6 +6,8 @@ import { getLangFromUrl, useTranslations } from "../../../i18n/utils";
 import Image from "astro/components/Image.astro";
 
 import wheat from "../../../../public/images/wheat.webp";
+import wheat2 from "../../../../public/images/wheat2.webp";
+
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
@@ -35,10 +37,17 @@ const t = useTranslations(lang);
                 href="#contacts"
             />
         </div>
-        <!-- <Image
+        <Image
+            src={wheat2}
+            alt="Wheat"
+            class="absolute lg:flex hidden lg:right-0 lg:max-w-[340px] lg:top-64 lg:max-h-[400px] xl:top-72 xl:max-w-[480px] 2xl:top-[15rem] 2xl:max-w-[700px] 2xl:max-h-[500px] 3xl:max-w-[800px] 3xl:max-h-[600px]"
+        />
+    </main>
+    <div class="w-full min-h-[240px] sm:min-h-[340px] relative lg:hidden">
+        <Image
             src={wheat}
             alt="Wheat"
-            class="absolute scale-x-[-1] lg:max-w-[500px] lg:max-h-[400px] max-h-[310px] max-w-[490px] sm:max-w-[700px] sm:max-h-[410px]"
-        /> -->
-    </main>
+            class="absolute -left-40 sm:-left-40 sm:max-w-[600px] lg:scale-x-[-1] lg:left-0 lg:right-84 max-h-[310px] max-w-[490px] sm:max-h-[410px]"
+        />
+    </div>
 </>

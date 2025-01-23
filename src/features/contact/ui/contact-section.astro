@@ -3,10 +3,11 @@ import Heading from "../../../shared/ui/heading/heading.astro";
 import Paragraph from "../../../shared/ui/paragraph/paragraph.astro";
 import Image from "astro/components/Image.astro";
 import { Form } from "./form";
+import { SuccessPopup } from "./success-popup";
 import { getLangFromUrl, useTranslations } from "../../../i18n/utils";
 
 import contacts01 from "../../../../public/images/contacts01.webp";
-import contacts02 from "../../../../public/images/contacts02.webp";
+import BackgroundLeafIcon from "../../../shared/icons/bg-leaf-icon";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -23,13 +24,13 @@ const t = useTranslations(lang);
                         class="w-[86%] lg:w-[80%] mx-auto py-14 lg:py-16 flex-1"
                     >
                         <Heading
-                            text={t('contact.title')}
+                            text={t("contact.title")}
                             level={5}
                             className="text-white uppercase lg:w-[80%]"
                         />
                         <Paragraph
                             className="mt-8 text-white lg:w-[90%] xl:w-[494px] leading-7 lg:mb-8"
-                            text={t('contact.description')}
+                            text={t("contact.description")}
                         />
                         <Form client:only lang={lang} />
                         <div class="flex flex-col items-start">
@@ -56,20 +57,29 @@ const t = useTranslations(lang);
                 <div class="hidden lg:block w-full lg:w-1/2 relative">
                     <Image
                         src={contacts01}
-                        alt={t('contact.title')}
+                        alt={t("contact.title")}
                         class="w-full h-full object-cover min-h-[865px]"
                     />
                     <div
                         class="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
                     >
-                        <Image
-                            src={contacts02}
-                            alt="25 years badge"
-                            class="w-[197px] h-[197px] rounded-full"
-                        />
+                        <div
+                            class="w-[197px] h-[197px] bg-primary rounded-full border-4 border-white items-center flex justify-center relative"
+                        >
+                            <div
+                                class="absolute inset-0 flex items-center justify-center"
+                            >
+                                <BackgroundLeafIcon />
+                            </div>
+                            <span
+                                class="text-white font-extrabold text-[24px] font-sans w-[151px] text-center leading-[28.8px] relative z-10"
+                                >{t("contact.badge")}</span
+                            >
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <SuccessPopup client:only />
 </section>

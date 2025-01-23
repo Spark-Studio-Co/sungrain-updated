@@ -1,45 +1,58 @@
-import { Input } from "./input"
-import { SubmitButton } from "./submit-button"
-import { useTranslations } from "../../../i18n/utils"
-import type { languages } from "../../../i18n/ui"
-import { useSendEmail } from "../model/use-send-email"
+import { Input } from "./input";
+import { SubmitButton } from "./submit-button";
+import { useTranslations } from "../../../i18n/utils";
+import type { languages } from "../../../i18n/ui";
+import { useSendEmail } from "../model/use-send-email";
 
 type FormProps = {
-    lang: keyof typeof languages
-}
+    lang: keyof typeof languages;
+};
 
 export const Form = ({ lang }: FormProps) => {
-    const t = useTranslations(lang)
-    const { register, handleSubmit, errors, isSubmitting } = useSendEmail()
+    const t = useTranslations(lang);
+    const { register, handleSubmit, errors, isSubmitting } = useSendEmail();
+
+    const errorMessageClass = "text-white text-[11px] sm:text-[14px] lg:text-sm font-gotham absolute -bottom-5 sm:-bottom-6 left-0 transition-opacity duration-200";
+
 
     return (
         <form onSubmit={handleSubmit}>
             <div className="relative">
                 <Input
-                    {...register("full_name")}
-                    name="full_name"
-                    placeholder={t('contact.name')}
+                    placeholder={t("contact.name")}
+                    {...register("full_name", {
+                        required: t("contact.name_required"),
+                        minLength: {
+                            value: 2,
+                            message: t("contact.name_too_short"),
+                        },
+                    })}
                 />
-                {errors.full_name && (
-                    <span className="text-white font-gotham text-sm absolute -bottom-6 left-0">
-                        {errors.full_name.message}
-                    </span>
-                )}
+                <span
+                    className={`${errorMessageClass} ${errors.full_name ? "opacity-100" : "opacity-0"}`}
+                >
+                    {errors.full_name?.message as string}
+                </span>
             </div>
-            <div className="relative mt-16">
+            <div className="relative mt-[2.6rem] sm:mt-[3rem] lg:mt-[3.5rem]">
                 <Input
-                    {...register("phone_number")}
-                    name="phone_number"
-                    placeholder={t('contact.phone')}
+                    placeholder={t("contact.phone")}
                     type="tel"
+                    {...register("phone_number", {
+                        required: t("contact.phone_required"),
+                        pattern: {
+                            value: /^[+]?[(]?[0-9]{1,4}[)]?[-\s./0-9]*$/,
+                            message: t("contact.phone_invalid"),
+                        },
+                    })}
                 />
-                {errors.phone_number && (
-                    <span className="text-white text-sm font-gotham absolute -bottom-6 left-0">
-                        {errors.phone_number.message}
-                    </span>
-                )}
+                <span
+                    className={`${errorMessageClass} ${errors.phone_number ? "opacity-100" : "opacity-0"}`}
+                >
+                    {errors.phone_number?.message as string}
+                </span>
             </div>
-            <SubmitButton className="mt-8" disabled={isSubmitting} />
+            <SubmitButton className="mt-10" disabled={isSubmitting} lang={lang} />
         </form>
-    )
-}
+    );
+};
