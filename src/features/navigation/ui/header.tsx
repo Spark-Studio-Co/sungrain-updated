@@ -12,6 +12,10 @@ import { getLangFromUrl, useTranslations } from '../../../i18n/utils'
 import styles from "./header.module.css";
 
 export const Header = () => {
+    const url = typeof window !== 'undefined' ? new URL(window.location.href) : null;
+    const lang = url ? getLangFromUrl(url) : 'ru';
+    const t = useTranslations(lang);
+
     useEffect(() => {
         document.documentElement.style.scrollBehavior = "smooth";
         return () => {
@@ -34,7 +38,7 @@ export const Header = () => {
                 <nav className="items-center justify-center gap-x-5 flex scroll-smooth">
                     {links.map((link, index) => (
                         <a href={link.href} key={index} className={styles.header__link}>
-                            {link.label}
+                            {t(link.labelKey)}
                         </a>
                     ))}
                 </nav>
@@ -56,6 +60,7 @@ export const Header = () => {
                 >
                     <WhatsAppIcon />
                 </a>
+                <LanguageSwitcher />
             </div>
         </header>
     );

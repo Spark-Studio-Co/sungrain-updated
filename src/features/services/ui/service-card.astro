@@ -4,7 +4,6 @@ import { getLangFromUrl, useTranslations } from "../../../i18n/utils";
 import type {
     ServiceCardTitle,
     ServiceCardText,
-    serviceCardContent,
 } from "../model/service-card-content";
 
 interface Props {
@@ -19,7 +18,7 @@ const t = useTranslations(lang);
 ---
 
 <div
-    class="flex flex-col w-full lg:max-w-[448.23px] bg-white xl:max-h-[304.96px] h-[19rem] sm:h-[21.5rem] rounded-[16px] py-5 px-6 lg:px-4 xl:px-5"
+    class="flex flex-col w-full bg-white xl:max-h-[304.96px] h-[19rem] sm:h-[21.5rem] rounded-[16px] py-5 px-6 lg:px-4 xl:px-5"
     style={{ boxShadow: "0px 16px 32px 0px #0000000F" }}
 >
     <div class="flex flex-row items-center w-full gap-4">

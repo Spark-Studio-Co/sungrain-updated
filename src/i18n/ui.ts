@@ -66,7 +66,7 @@ export const ui = {
         'services.card5.text': 'This is the translation for service card 5',
 
         // Contact Section
-        'contact.title': 'Contact Us',
+        'contact.title': 'get in touch with \nus now',
         'contact.description': 'Get in touch with us for any questions about our products and services. We\'re here to help!',
         'contact.name': 'Your Name',
         'contact.phone': 'Your Phone Number',
@@ -134,7 +134,7 @@ export const ui = {
         'services.card5.text': 'Это перевод для услуги карточка 5',
 
         // Contact Section
-        'contact.title': 'Связаться с нами',
+        'contact.title': 'свяжитесь с нами \nуже сейчас',
         'contact.description': 'Свяжитесь с нами, если у вас есть вопросы о наших продуктах и услугах. Мы всегда готовы помочь!',
         'contact.name': 'Ваше имя',
         'contact.phone': 'Ваш номер телефона',
