@@ -13,7 +13,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<section class="flex flex-col mt-16 lg:mt-64" id="contacts">
+<section class="flex flex-col mt-16 lg:mt-64 max-w-[2560px]" id="contacts">
     <div class="w-full relative">
         <div class="w-full h-full">
             <div class="flex flex-col lg:flex-row relative">
@@ -47,11 +47,13 @@ const t = useTranslations(lang);
                         </div>
                     </div>
                     <div class="w-[86%] lg:w-[80%] mx-auto pb-8">
-                        <span
+                        <a
+                            href="https://sparkstudio.kz"
+                            target="_blank"
                             class="block text-white font-[500] font-montserrat text-[20px]"
                         >
                             Developed By Spark Studio
-                        </span>
+                        </a>
                     </div>
                 </div>
                 <div class="hidden lg:block w-full lg:w-1/2 relative">

@@ -14,10 +14,10 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<section class="flex flex-col mt-16" id="services">
-    <div class="w-full relative">
+<section class="flex flex-col mt-16 relative" id="services">
+    <div class="w-full relative max-w-[2560px] mx-auto">
         <div
-            class="absolute left-0 top-0 h-[60%] lg:h-full w-full lg:w-[55vw] overflow-hidden"
+            class="absolute left-0 top-0 h-[60%] lg:h-full w-full lg:w-[55%] overflow-hidden"
         >
             <Image
                 src={services01}
@@ -32,7 +32,9 @@ const t = useTranslations(lang);
             <div class="absolute inset-0 bg-[#F3881080]"></div>
         </div>
         <div class="relative z-10">
-            <div class="w-[86%] lg:max-w-[80%] 3xl:max-w-[1560px] mx-auto">
+            <div
+                class="w-[86%] lg:max-w-[80%] 3xl:max-w-[1560px] 7xl:max-w-[2560px] mx-auto"
+            >
                 <div class="flex flex-col lg:flex-row relative">
                     <div class="w-full lg:w-[55%]">
                         <div class="flex items-start flex-col py-16">
@@ -49,9 +51,10 @@ const t = useTranslations(lang);
                                 className="mt-8 mb-8 text-white text-[18px] lg:hidden"
                                 text={t("services.paragraph")}
                             />
-                            <span
+                            <a
+                                href="#contacts"
                                 class="font-montserrat font-[500] text-[18px] text-white lg:hidden"
-                                >{t("services.contact")}</span
+                                >{t("services.contact")}</a
                             >
                             <div
                                 class="mt-6 flex flex-col items-stretch w-full gap-8 lg:hidden"
@@ -65,16 +68,17 @@ const t = useTranslations(lang);
                         </div>
                     </div>
                     <div
-                        class="hidden lg:flex flex-col lg:w-[45%] lg:pt-16 lg:min-h-[806px]"
+                        class="hidden lg:flex flex-col lg:w-[45%] max-w-[2560px] lg:pt-16 lg:min-h-[806px]"
                     >
                         <div class="lg:pl-16 xl:pl-20">
                             <Paragraph
                                 className="text-[#223137] text-[18px] lg:max-w-[100%] xl:max-w-[75%] mb-8"
                                 text={t("services.paragraph")}
                             />
-                            <span
+                            <a
+                                href="#contacts"
                                 class="font-montserrat font-[500] text-[18px] text-[#F38810]"
-                                >{t("services.contact")}</span
+                                >{t("services.contact")}</a
                             >
                         </div>
                     </div>
@@ -83,7 +87,7 @@ const t = useTranslations(lang);
         </div>
     </div>
     <div
-        class="hidden lg:block lg:max-w-[80%] 3xl:max-w-[1560px] mx-auto relative -mt-[28rem]"
+        class="hidden lg:block lg:max-w-[80%] 3xl:max-w-[1560px] max-w-[2560px] mx-auto relative -mt-[28rem]"
     >
         <div class="z-20">
             <div class="grid grid-cols-3 gap-8">

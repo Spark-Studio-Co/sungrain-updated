@@ -9,7 +9,7 @@ export const SubmitButton = ({ className, disabled, lang }: { className?: string
             disabled={disabled}
             className={`rounded-[32px] bg-white h-[50px] w-[200px] flex items-center justify-center text-primary font-montserrat font-[500] text-[16px] ${className}`}
         >
-            {t('contact.submit')}
+            {disabled ? t('button.loading') : t('contact.submit')}
         </button>
     )
 }

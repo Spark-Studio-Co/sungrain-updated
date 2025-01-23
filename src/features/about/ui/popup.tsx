@@ -1,7 +1,6 @@
 import { useAboutPopupStore } from '../model/popup-store';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useRef } from 'react';
-import { getLangFromUrl, useTranslations } from '../../../i18n/utils';
 
 const overlayVariants = {
     hidden: { opacity: 0 },
@@ -35,55 +34,46 @@ const contentVariants = {
 };
 
 export const AboutPopup = () => {
-    const { popupContent, closePopup } = useAboutPopupStore();
-    const popupRef = useRef<HTMLDivElement>(null);
-    const lang = getLangFromUrl(new URL(window.location.href));
-    const t = useTranslations(lang);
+    const { activePopup, popupContent, closePopup } = useAboutPopupStore();
+    const overlayRef = useRef<HTMLDivElement>(null);
 
-    const handleClick = (e: React.MouseEvent) => {
-        if (popupRef.current && !popupRef.current.contains(e.target as Node)) {
+    const handleOverlayClick = (e: React.MouseEvent) => {
+        if (e.target === overlayRef.current) {
             closePopup();
         }
     };
 
     return (
         <AnimatePresence>
-            {popupContent && (
+            {activePopup && (
                 <motion.div
+                    ref={overlayRef}
                     className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
                     variants={overlayVariants}
                     initial="hidden"
                     animate="visible"
                     exit="hidden"
-                    onClick={handleClick}
+                    onClick={handleOverlayClick}
                 >
                     <motion.div
-                        ref={popupRef}
-                        className="bg-white rounded-2xl p-8 max-w-md w-full"
+                        className="bg-white rounded-[20px] p-8 max-w-[600px] w-full max-h-[80vh] overflow-y-auto"
                         variants={contentVariants}
                         initial="hidden"
                         animate="visible"
                         exit="exit"
                     >
-                        <div className="flex items-center justify-between mb-6">
-                            <span className="text-2xl font-bold text-primary">
-                                {popupContent.title}
-                            </span>
-                            <button
-                                onClick={closePopup}
-                                className=" hover:text-primary transition-colors"
-                                aria-label={t('button.close')}
-                            >
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                </svg>
-                            </button>
-                        </div>
-                        {popupContent.description && (
-                            <p className="text-gray-600 font-gotham">
-                                {popupContent.description}
-                            </p>
-                        )}
+                        <span className="font-unisans font-[900] text-[28px] text-primary mb-4">
+                            {popupContent?.title}
+                        </span>
+                        <p className="font-montserrat text-[16px] leading-[24px] text-secondary">
+                            {popupContent?.description}
+                        </p>
+                        <button
+                            onClick={closePopup}
+                            className="mt-6 px-6 py-2 bg-primary text-white rounded-full font-montserrat hover:bg-primary/90 transition-colors"
+                        >
+                            Закрыть
+                        </button>
                     </motion.div>
                 </motion.div>
             )}

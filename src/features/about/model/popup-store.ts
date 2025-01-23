@@ -2,7 +2,7 @@ import { create } from 'zustand';
 
 interface AboutPopupContent {
     title: string;
-    description?: string;
+    description: string;
 }
 
 interface PopupState {

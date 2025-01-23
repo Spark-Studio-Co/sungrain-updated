@@ -24,7 +24,7 @@ export const Header = () => {
     }, []);
 
     return (
-        <header className="max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] mx-auto flex justify-between items-center mt-8 absolute top-0 left-0 right-0 z-[100] bg-white">
+        <header className="max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] 7xl:max-w-[2560px] mx-auto flex justify-between items-center mt-8 absolute top-0 left-0 right-0 z-[100] bg-white">
             <div className="lg:hidden flex">
                 <LogoIcon />
             </div>

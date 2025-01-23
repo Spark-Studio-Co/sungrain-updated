@@ -23,6 +23,7 @@ export const ui = {
         'button.close': 'Close',
         'button.send': 'Send',
         'button.contact': 'Contact Us',
+        'button.loading': 'Loading...',
 
         // About Section
         'about.subtitle': 'Various crops',
@@ -31,13 +32,13 @@ export const ui = {
 
         // About Cards
         'about.card1.title': 'SOFT WHEAT',
-        'about.card1.text': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, natus.',
+        'about.card1.popup': 'Soft wheat is a versatile and sought-after grain crop that is widely used in various industries. Its grains have a round or oval shape with a pronounced groove and beard, and the consistency can be vitreous, semi-vitreous, or floury. The grain color varies from white and yellow to red. Soft wheat is ideal for flour production used in bread making, confectionery, and pasta production. Due to its high nutrient content, it is also used as a valuable component in animal feed, ensuring their healthy growth and development.',
         'about.card2.title': 'BARLEY',
-        'about.card2.text': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, natus.',
+        'about.card2.popup': 'Barley is an important grain crop widely used in agriculture. Its grains have high nutritional value and are used in animal feed production, as well as in the food and brewing industries. Barley is a valuable source of carbohydrates, vitamins, and minerals that contribute to livestock health and product quality improvement. Additionally, barley is used for flour, cereals, and other products.',
         'about.card3.title': 'RED MILLET',
-        'about.card3.text': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, natus.',
+        'about.card3.popup': 'Red millet is a grain crop known for its drought resistance and unpretentiousness to growing conditions. It has high nutritional value and is used as livestock feed, as well as in food production. Red millet grains contain many carbohydrates, proteins, and vitamins, making it beneficial for both animals and humans. In the food industry, red millet is used for cereals, bakery products, and other products.',
         'about.card4.title': 'YELLOW MILLET',
-        'about.card4.text': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, natus.',
+        'about.card4.popup': 'Yellow millet is a versatile grain crop that is used in various industries, including food, feed, and other products. Its grains are small and round, with a soft, fluffy texture. Yellow millet is known for its high nutritional value and is used in livestock feed, as well as in food production. The grains contain carbohydrates, proteins, and vitamins, making them a valuable source of nutrients for both humans and animals.',
 
         //Principles Section
         'principles.subtitle': '10 years of experience on the Market',
@@ -102,6 +103,7 @@ export const ui = {
         'button.close': 'Закрыть',
         'button.send': 'Отправить',
         'button.contact': 'Связаться с нами',
+        'button.loading': 'Загрузка...',
 
         // About Section
         'about.subtitle': 'Различные культуры',
@@ -110,13 +112,13 @@ export const ui = {
 
         // About Cards
         'about.card1.title': 'ПШЕНИЦА МЯГКАЯ',
-        'about.card1.text': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, natus.',
+        'about.card1.popup': 'Пшеница мягкая - это универсальная и востребованная зерновая культура, широко используемая в различных отраслях промышленности. Ее зерна имеют округлую или овальную форму с выраженной бороздой и бородой, а консистенция может быть стекловидной, полустекловидной или мучнистой. Цвет зерна варьируется от белого и желтого до красного. Пшеница мягкая идеальна для производства муки, используемой в хлебопечении, кондитерской промышленности и производстве макаронных изделий. Благодаря высокому содержанию питательных веществ, она также используется в качестве ценного компонента в кормах для животных, обеспечивая их здоровый рост и развитие.',
         'about.card2.title': 'ЯЧМЕНЬ',
-        'about.card2.text': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, natus.',
+        'about.card2.popup': 'Семена подсолнечника - это ценный продукт, используемый для производства масла в пищевой и кормовой промышленности. Они богаты жирами, витаминами и минералами, что делает их полезными как для людей, так и для животных. Семена имеют твердую оболочку и питательное ядро, из которого получают масло и другие переработанные продукты.',
         'about.card3.title': 'ПРОСО КРАСНОЕ',
-        'about.card3.text': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, natus.',
+        'about.card3.popup': 'Ячмень - это важная зерновая культура, широко используемая в сельском хозяйстве. Его зерна имеют высокую питательную ценность и используются в производстве кормов для животных, а также в пищевой и пивоваренной промышленности. Ячмень - это ценный источник углеводов, витаминов и минералов, которые способствуют здоровью животных и улучшению качества продукции. Кроме того, ячмень используется для производства муки, круп и других продуктов.',
         'about.card4.title': 'ЖЕЛТОЕ ПРОСО',
-        'about.card4.text': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, natus.',
+        'about.card4.popup': 'Просо красное - это зерновая культура, известная своей засухоустойчивостью и неприхотливостью к условиям выращивания. Оно имеет высокую питательную ценность и используется в качестве корма для животных, а также в пищевой промышленности. Зерна проса красного содержат много углеводов, белков и витаминов, что делает его полезным как для животных, так и для людей. В пищевой промышленности просо красное используется для производства круп, хлебобулочных изделий и других продуктов.',
 
         //Principles Section
         'principles.subtitle': '10 лет опыта на Рынке',

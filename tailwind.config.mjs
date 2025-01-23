@@ -19,6 +19,7 @@ export default {
 				"4xl": "1900px",
 				"5xl": "2100px",
 				"6xl": "2300px",
+				"7xl": "2560px",
 			},
 		},
 	},
