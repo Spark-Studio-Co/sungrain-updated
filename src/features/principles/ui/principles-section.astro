@@ -4,10 +4,14 @@ import Heading from "../../../shared/ui/heading/heading.astro";
 import Paragraph from "../../../shared/ui/paragraph/paragraph.astro";
 import ListItem from "./list-item.astro";
 import Image from "astro/components/Image.astro";
+import { getLangFromUrl, useTranslations } from "../../../i18n/utils";
 
 import { listContent } from "../model/list-content";
 
 import principles01 from "../../../../public/images/principles01.webp";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section
@@ -15,18 +19,18 @@ import principles01 from "../../../../public/images/principles01.webp";
     id="principles"
 >
     <div class="flex items-end flex-col">
-        <Subtitle text="10 лет опыта на Рынке" className="text-[#D25127]" />
+        <Subtitle text={t("principles.subtitle")} className="text-[#D25127]" />
         <Heading
-            text="Честность и качество \nв каждом зерне!"
+            text={t("principles.title")}
             level={3}
             className="mt-3 text-end"
         />
         <Paragraph
             className="mt-8 mb-4 text-end"
-            text="Честность – наш принцип. С SunGrain вы получаете качественное зерно и прозрачные условия. Мы строим бизнес на доверии, чтобы вы выбирали лучшее. SunGrain – по-настоящему честный бизнес."
+            text={t("principles.paragraph")}
         />
-        <div class="flex flex-col gap-4">
-            {listContent.map(({ text }) => <ListItem text={text} />)}
+        <div class="flex flex-col gap-4 w-full items-end">
+            {listContent.map(({ text }) => <ListItem text={t(text)} />)}
         </div>
     </div>
     <div class="w-full relative h-[170px] sm:h-[240px] mt-8 lg:mt-0">

@@ -1,20 +1,29 @@
 import { GrainsBoldIcon } from "../../../shared/icons/grains-bold-icon";
 import { HandshakeIcon, TruckIcon } from "lucide-react";
 
-export const serviceCardContent = [
+export type ServiceCardTitle = "services.card1.title" | "services.card2.title" | "services.card3.title";
+export type ServiceCardText = "services.card1.text" | "services.card2.text" | "services.card3.text";
+
+interface ServiceCard {
+    Icon: any;
+    title: ServiceCardTitle;
+    text: ServiceCardText;
+}
+
+export const serviceCardContent: ServiceCard[] = [
     {
-        icon: GrainsBoldIcon,
-        title: "Lorem ipsum",
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vitae venenatis arcu. Ut justo arcu, ullamcorper vel tellus ut, semper volutpat lorem. Morbi et bibendum nibh.",
+        Icon: GrainsBoldIcon,
+        title: "services.card1.title",
+        text: "services.card1.text",
     },
     {
-        icon: HandshakeIcon,
-        title: "Lorem ipsum",
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vitae venenatis arcu. Ut justo arcu, ullamcorper vel tellus ut, semper volutpat lorem. Morbi et bibendum nibh.",
+        Icon: HandshakeIcon,
+        title: "services.card2.title",
+        text: "services.card2.text",
     },
     {
-        icon: TruckIcon,
-        title: "Lorem ipsum",
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vitae venenatis arcu. Ut justo arcu, ullamcorper vel tellus ut, semper volutpat lorem. Morbi et bibendum nibh.",
+        Icon: TruckIcon,
+        title: "services.card3.title",
+        text: "services.card3.text",
     },
 ];

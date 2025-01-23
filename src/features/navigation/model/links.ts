@@ -1,6 +1,13 @@
-export const links = [
-    { label: "О нас", href: "#about" },
-    { label: "Наши принципы", href: "#principles" },
-    { label: "Наши услуги", href: "#services" },
-    { label: "Контакты", href: "#contacts" },
+type NavLinkKey = "nav.about" | "nav.principles" | "nav.services" | "nav.contact";
+
+interface NavLink {
+    labelKey: NavLinkKey;
+    href: string;
+}
+
+export const links: NavLink[] = [
+    { labelKey: "nav.about", href: "#about" },
+    { labelKey: "nav.principles", href: "#principles" },
+    { labelKey: "nav.services", href: "#services" },
+    { labelKey: "nav.contact", href: "#contacts" },
 ]

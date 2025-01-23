@@ -2,9 +2,12 @@
 import Heading from "../../../shared/ui/heading/heading.astro";
 import Paragraph from "../../../shared/ui/paragraph/paragraph.astro";
 import Button from "../../../shared/ui/button/button.astro";
+import { getLangFromUrl, useTranslations } from "../../../i18n/utils";
 import Image from "astro/components/Image.astro";
 
 import wheat from "../../../../public/images/wheat.webp";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <>
@@ -13,30 +16,27 @@ import wheat from "../../../../public/images/wheat.webp";
     >
         <div class="flex flex-col items-start">
             <Heading
-                text="качественное \nзерно с"
+                text={t("hero.title.mob")}
                 orangeText="sungrain"
                 className="lg:hidden"
                 level={1}
             />
             <Heading
-                text="качественное зерно \nс TOO"
+                text={t("hero.title.pc")}
                 orangeText="sungrain"
                 className="hidden lg:block"
                 level={1}
             />
-            <Paragraph
-                className="mt-4"
-                text="Честность – наш принцип. С Sun Grain вы получаете качественное зерно и прозрачные условия. Мы строим бизнес на доверии, чтобы вы выбирали лучшее. SunGrain – по-настоящему честный бизнес."
-            />
+            <Paragraph className="mt-4" text={t("hero.paragraph")} />
             <Button
-                label="Связаться с нами"
+                label={t("button.contact")}
                 className="mt-8"
                 buttonType="link"
                 href="#contacts"
             />
         </div>
     </section>
-    <div
+    <!-- <div
         class="w-full min-h-[240px] sm:min-h-[340px] relative lg:w-auto lg:max-w-[50%] lg:translate-x-[50%] lg:translate-y-[-50%] overflow-hidden"
     >
         <Image
@@ -44,5 +44,5 @@ import wheat from "../../../../public/images/wheat.webp";
             alt="Wheat"
             class="absolute -left-40 sm:-left-52 lg:scale-x-[-1] lg:left-96 max-h-[310px] max-w-[490px] sm:max-w-[700px] sm:max-h-[410px]"
         />
-    </div>
+    </div> -->
 </>

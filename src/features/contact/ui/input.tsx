@@ -12,7 +12,7 @@ export const Input = ({ placeholder, className, name }: IInputProps) => {
     const id = useId();
 
     return (
-        <div className={`relative mt-8 ${className || ''} max-w-[401px]`}>
+        <div className={`relative mt-8 ${className || ''} max-w-[401px] lg:max-w-[320px] xl:max-w-[401px]`}>
             <input
                 id={id}
                 name={name}

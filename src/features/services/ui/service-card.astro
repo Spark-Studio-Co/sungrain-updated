@@ -1,38 +1,39 @@
 ---
 import type { ComponentType } from "react";
-
-interface IconProps {
-    size: number;
-    color: string;
-    className: string;
-}
+import { getLangFromUrl, useTranslations } from "../../../i18n/utils";
+import type {
+    ServiceCardTitle,
+    ServiceCardText,
+    serviceCardContent,
+} from "../model/service-card-content";
 
 interface Props {
-    icon: ComponentType<IconProps>;
-    title: string;
-    text: string;
+    Icon: ComponentType<{ size?: number; color?: string; className?: string }>;
+    title: ServiceCardTitle;
+    text: ServiceCardText;
 }
-const { icon: Icon, title, text } = Astro.props;
+
+const { Icon, title, text } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <div
-    class="flex flex-col w-full bg-white lg:max-h-[304.96px] h-[19rem] sm:h-[21.5rem] rounded-[16px] py-5 px-6"
+    class="flex flex-col w-full lg:max-w-[448.23px] bg-white xl:max-h-[304.96px] h-[19rem] sm:h-[21.5rem] rounded-[16px] py-5 px-6 lg:px-4 xl:px-5"
     style={{ boxShadow: "0px 16px 32px 0px #0000000F" }}
 >
-    <div class="flex flex-row items-center gap-4">
+    <div class="flex flex-row items-center w-full gap-4">
         <div
             class="w-20 h-20 bg-[#F3881033] rounded-full flex items-center justify-center"
         >
-            <Icon size={40} color="#F38810" className="text-primary" />
+            <Icon size={32} color="#F38810" className="text-primary" />
         </div>
         <span
-            class="font-gotham font-[700] text-[1.6rem] text-primary whitespace-nowrap"
-            >{title}</span
+            class="font-gotham font-[700] lg:text-[1.2rem] xl:text-[1.4rem] text-[1.6rem] text-primary"
+            >{t(title)}</span
         >
     </div>
-    <p
-        class="w-full font-gotham font-[400] text-[14px] leading-[25px] text-secondary mt-6 self-center"
-    >
-        {text}
+    <p class="mt-6 text-[#223137] text-[18px] font-montserrat font-[400]">
+        {t(text)}
     </p>
 </div>

@@ -2,6 +2,8 @@ import { useEffect, useRef } from "react"
 import { gsap } from "gsap"
 import { useMenuStore } from "../model/menu-store"
 import { useBurgerMenuStore } from "../model/burger-menu-store"
+import { LanguageSwitcher } from "./language-switcher"
+import { getLangFromUrl, useTranslations } from '../../../i18n/utils'
 
 import { links } from "../model/links"
 
@@ -11,6 +13,17 @@ export const Menu = () => {
     const isOpen = useMenuStore((state) => state.isOpen)
     const closeMenu = useMenuStore((state) => state.close)
     const toggleBurgerMenu = useBurgerMenuStore((state) => state.toggleMenu)
+
+    useEffect(() => {
+        document.documentElement.style.scrollBehavior = 'smooth';
+        return () => {
+            document.documentElement.style.scrollBehavior = 'auto';
+        };
+    }, []);
+
+    const url = typeof window !== 'undefined' ? new URL(window.location.href) : null;
+    const lang = url ? getLangFromUrl(url) : 'ru';
+    const t = useTranslations(lang);
 
     const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
         e.preventDefault()
@@ -91,10 +104,13 @@ export const Menu = () => {
                         className="menu-item block text-3xl font-montserrat font-medium mb-8 z-40 text-primary"
                         onClick={handleLinkClick}
                     >
-                        {link.label}
+                        {t(link.labelKey)}
                     </a>
                 ))}
             </nav>
+            <div className="menu-item mb-6 mt-4">
+                <LanguageSwitcher />
+            </div>
             <div className="menu-item flex flex-col items-center">
                 <a
                     href="tel:+7 775 993 25 87"

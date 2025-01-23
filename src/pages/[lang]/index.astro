@@ -1,0 +1,26 @@
+---
+import { getStaticPaths, getLangFromUrl, useTranslations } from "../../i18n/utils";
+import Layout from "../../layouts/main-layout.astro";
+import { Header } from "../../features/navigation/ui/header";
+import HeroSection from "../../features/hero/ui/hero-section.astro";
+import AboutSection from "../../features/about/ui/about-section.astro";
+import PrinciplesSection from "../../features/principles/ui/principles-section.astro";
+import ServicesSection from "../../features/services/ui/services-section.astro";
+import ContactSection from "../../features/contact/ui/contact-section.astro";
+import { Menu } from "../../features/navigation/ui/menu";
+
+export { getStaticPaths };
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout title="SunGrain">
+    <Header client:load />
+    <Menu client:load />
+    <HeroSection />
+    <AboutSection />
+    <PrinciplesSection />
+    <ServicesSection />
+    <ContactSection />
+</Layout>

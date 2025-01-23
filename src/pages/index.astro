@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/main-layout.astro";
 import { Header } from "../features/navigation/ui/header";
+import { defaultLang } from "../i18n/ui";
 
 //sections
 import HeroSection from "../features/hero/ui/hero-section.astro";
@@ -9,6 +10,11 @@ import PrinciplesSection from "../features/principles/ui/principles-section.astr
 import ServicesSection from "../features/services/ui/services-section.astro";
 import ContactSection from "../features/contact/ui/contact-section.astro";
 import { Menu } from "../features/navigation/ui/menu";
+
+// Redirect to the default language path
+export const prerender = true;
+Astro.response.status = 301;
+Astro.response.headers.set("Location", `/${defaultLang}`);
 ---
 
 <Layout>

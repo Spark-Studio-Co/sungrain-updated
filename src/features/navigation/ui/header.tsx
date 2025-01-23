@@ -6,6 +6,8 @@ import InstagramIcon from "../../../shared/icons/instagram-icon"
 import WhatsAppIcon from "../../../shared/icons/whatsapp-icon"
 import PcLogoIcon from "../../../shared/icons/pc-logo-icon"
 import { links } from "../model/links"
+import { LanguageSwitcher } from "./language-switcher"
+import { getLangFromUrl, useTranslations } from '../../../i18n/utils'
 
 import styles from "./header.module.css"
 
@@ -18,6 +20,9 @@ export const Header = () => {
         };
     }, []);
 
+    const url = typeof window !== 'undefined' ? new URL(window.location.href) : null;
+    const lang = url ? getLangFromUrl(url) : 'ru';
+    const t = useTranslations(lang);
 
     return (
         <header className="max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] mx-auto flex justify-between items-center mt-8 absolute top-0 left-0 right-0 z-[100] bg-white">
@@ -38,7 +43,7 @@ export const Header = () => {
                             key={index}
                             className={styles.header__link}
                         >
-                            {link.label}
+                            {t(link.labelKey)}
                         </a>
                     ))}
                 </nav>
@@ -48,8 +53,8 @@ export const Header = () => {
                 <a href="https://wa.me/+77768261717" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="ml-4">
                     <WhatsAppIcon />
                 </a>
+                <LanguageSwitcher />
             </div>
         </header>
     )
-
 }
