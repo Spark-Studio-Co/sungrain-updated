@@ -98,12 +98,12 @@ export const Menu = () => {
             <div className="menu-item flex flex-col items-center">
                 <a
                     href="tel:+7 775 993 25 87"
-                    className="mt-8 text-primary font-[500] font-montserrat text-[20px]"
+                    className="mt-8 text-secondary font-[500] font-montserrat text-[20px]"
                 >+7 775 993 25 87</a
                 >
                 <a
                     href="mailto:sungrain@gmail.com"
-                    className="mt-2 text-primary font-[500] font-montserrat text-[20px]"
+                    className="mt-2 text-secondary font-[500] font-montserrat text-[20px]"
                 >sungrain@gmail.com</a
                 >
             </div>

@@ -13,8 +13,15 @@ import wheat from "../../../../public/images/wheat.webp";
     >
         <div class="flex flex-col items-start">
             <Heading
-                text="качественное\nзерно c"
+                text="качественное \nзерно с"
                 orangeText="sungrain"
+                className="lg:hidden"
+                level={1}
+            />
+            <Heading
+                text="качественное зерно \nс TOO"
+                orangeText="sungrain"
+                className="hidden lg:block"
                 level={1}
             />
             <Paragraph
@@ -29,11 +36,13 @@ import wheat from "../../../../public/images/wheat.webp";
             />
         </div>
     </section>
-    <!-- <div class="w-full min-h-[240px] sm:min-h-[340px] relative">
+    <div
+        class="w-full min-h-[240px] sm:min-h-[340px] relative lg:w-auto lg:max-w-[50%] lg:translate-x-[50%] lg:translate-y-[-50%] overflow-hidden"
+    >
         <Image
             src={wheat}
             alt="Wheat"
-            class="absolute -left-40 sm:-left-52 lg:scale-x-[-1] lg:left-0 lg:right-84 max-h-[310px] max-w-[490px] sm:max-w-[700px] sm:max-h-[410px]"
+            class="absolute -left-40 sm:-left-52 lg:scale-x-[-1] lg:left-96 max-h-[310px] max-w-[490px] sm:max-w-[700px] sm:max-h-[410px]"
         />
-    </div> -->
+    </div>
 </>
