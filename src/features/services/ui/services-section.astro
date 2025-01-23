@@ -3,40 +3,88 @@ import Subtitle from "../../../shared/ui/subtitle/subtitle.astro";
 import Heading from "../../../shared/ui/heading/heading.astro";
 import Paragraph from "../../../shared/ui/paragraph/paragraph.astro";
 import ServiceCard from "./service-card.astro";
+import Image from "astro/components/Image.astro";
 
-import services01 from "../../../../public/images/services01.webp";
 import { serviceCardContent } from "../model/service-card-content";
+import services01 from "../../../../public/images/services01.webp";
+import services02 from "../../../../public/images/services02.webp";
 ---
 
-<div
-    class="relative left-[50%] right-[50%] -mx-[50vw] w-screen mt-16"
-    id="services"
->
-    <section
-        class="flex items-start flex-col relative bg-cover bg-center bg-no-repeat max-h-[930px]"
-        style={`background-image: url(${services01.src})`}
+<section class="flex flex-col mt-16" id="services">
+    <div class="w-full relative">
+        <div
+            class="absolute left-0 top-0 h-[60%] lg:h-full w-full lg:w-[55vw] overflow-hidden"
+        >
+            <Image
+                src={services01}
+                alt="Services background"
+                class="w-full h-full object-cover lg:hidden"
+            />
+            <Image
+                src={services02}
+                alt="Services background"
+                class="hidden lg:block w-full h-full object-cover"
+            />
+            <div class="absolute inset-0 bg-[#F3881080]"></div>
+        </div>
+        <div class="relative z-10">
+            <div class="w-[86%] lg:max-w-[80%] 3xl:max-w-[1560px] mx-auto">
+                <div class="flex flex-col lg:flex-row relative">
+                    <div class="w-full lg:w-[55%]">
+                        <div class="flex items-start flex-col py-16">
+                            <Subtitle
+                                text="Ознакомьтесь со списком наших услуг"
+                                className="text-white"
+                            />
+                            <Heading
+                                text="Мы предоставляем \nуслуги высшего \nкачества"
+                                level={4}
+                                className="mt-3 text-white lg:w-[540px]"
+                            />
+                            <Paragraph
+                                className="mt-8 mb-8 text-white text-[18px] lg:hidden"
+                                text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vitae venenatis arcu. Ut justo arcu, ullamcorper vel tellus ut, semper volutpat lorem. Morbi et bibendum nibh."
+                            />
+                            <span
+                                class="font-montserrat font-[500] text-[18px] text-white lg:hidden"
+                                >Связаться с нами</span
+                            >
+                            <div
+                                class="mt-6 flex flex-col items-center gap-8 lg:hidden"
+                            >
+                                {
+                                    serviceCardContent.map((card) => (
+                                        <ServiceCard {...card} />
+                                    ))
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="hidden lg:flex flex-col lg:w-[45%] lg:pt-16 lg:min-h-[806px]"
+                    >
+                        <div class="lg:pl-16 xl:pl-20">
+                            <Paragraph
+                                className="text-[#223137] text-[18px] max-w-[75%] mb-8"
+                                text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vitae venenatis arcu. Ut justo arcu, ullamcorper vel tellus ut, semper volutpat lorem. Morbi et bibendum nibh."
+                            />
+                            <span
+                                class="font-montserrat font-[500] text-[18px] text-[#F38810]"
+                                >Связаться с нами</span
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div
+        class="hidden lg:block lg:max-w-[80%] 3xl:max-w-[1560px] mx-auto relative -mt-[28rem]"
     >
-        <div class="absolute inset-0 bg-[#F3881080]"></div>
-        <div class="relative z-10 w-[86%] mx-auto py-16">
-            <Subtitle
-                text="Ознакомьтесь со списком наших услуг"
-                className="text-white"
-            />
-            <Heading
-                text="Мы предоставляем услуги высшего качества"
-                level={4}
-                className="mt-3 text-white"
-            />
-            <Paragraph
-                className="mt-8 mb-8 text-white text-[18px]"
-                text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vitae venenatis arcu. Ut justo arcu, ullamcorper vel tellus ut, semper volutpat lorem. Morbi et bibendum nibh."
-            />
-            <span class="font-montserrat font-[500] text-[18px] text-white"
-                >Связаться с нами</span
-            >
-            <div class="mt-6 flex flex-col items-center gap-8">
+        <div class="z-20">
+            <div class="flex flex-row justify-between gap-6">
                 {serviceCardContent.map((card) => <ServiceCard {...card} />)}
             </div>
         </div>
-    </section>
-</div>
+    </div>
+</section>

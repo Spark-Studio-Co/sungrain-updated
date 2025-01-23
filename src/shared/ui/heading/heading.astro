@@ -7,12 +7,23 @@ interface Props {
 }
 
 const { text, orangeText = "", level = 1, className = "" } = Astro.props;
+
+const lines = text.split("\n");
 ---
 
 <h1
-    is={`h${level}`}
-    class={`font-unisans text-secondary font-[900] leading-[48px] sm:leading-[85px] lg:leading-[128px] w-full lg:max-w-[952px] ${level > 2 ? "text-[32px] sm:text-[48px] lg:text-[48px]" : "text-[40px] sm:text-[64px] lg:text-[85px]"} ${className}`}
+    class:list={[
+        `font-unisans text-secondary font-[900]  ${level < 2 ? " xl:leading-[128px] text-[28px] sm:text-[32px] xl:text-[85px]" : "text-[30px] sm:text-[44px] xl:text-[48px]"}`,
+        className,
+    ]}
 >
-    {text.toUpperCase()}
+    {
+        lines.map((line, index) => (
+            <>
+                {line.toUpperCase()}
+                {index < lines.length - 1 && <br />}
+            </>
+        ))
+    }
     <span class="text-primary">{orangeText.toUpperCase()}</span>
 </h1>

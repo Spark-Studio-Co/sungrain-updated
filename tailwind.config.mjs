@@ -14,7 +14,11 @@ export default {
 				'unisans': ['Uni Sans', 'sans-serif'],
 			},
 			screens: {
+				"1.5xl": "1150px",
 				"3xl": "1700px",
+				"4xl": "1900px",
+				"5xl": "2100px",
+				"6xl": "2300px",
 			},
 		},
 	},

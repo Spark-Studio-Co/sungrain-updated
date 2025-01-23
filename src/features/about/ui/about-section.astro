@@ -7,14 +7,19 @@ import AboutCard from "./about-card.astro";
 import { aboutCardsContent } from "../model/cards-content";
 ---
 
-<section class="flex flex-col mt-16" id="about">
+<section
+    class="max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] mx-auto flex flex-col mt-16"
+    id="about"
+>
     <Subtitle text="Различные виды культур" className="text-[#D25127]" />
     <Heading text="О" orangeText="sun grain" level={2} className="mt-3" />
     <Paragraph
         className="mt-8 mb-16"
         text="Честность – наш принцип. С SunGrain вы получаете качественное зерно и прозрачные условия. Мы строим бизнес на доверии, чтобы вы выбирали лучшее. SunGrain – по-настоящему честный бизнес."
     />
-    <div class="flex flex-col justify-center items-center gap-8">
+    <div
+        class="flex flex-col lg:flex-row justify-center items-center lg:justify-start gap-8 lg:gap-5"
+    >
         {
             aboutCardsContent.map(({ image, title, text }) => (
                 <AboutCard image={image} title={title} text={text} />

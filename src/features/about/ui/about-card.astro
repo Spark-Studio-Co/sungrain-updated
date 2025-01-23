@@ -13,20 +13,21 @@ const { image, title, text } = Astro.props;
 ---
 
 <div
-    class="flex flex-col items-start w-full h-[476px] sm:h-[576px] rounded-[20px]"
+    class="flex flex-col items-start w-full h-[476px] sm:h-[576px] rounded-[20px] lg:w-min-[195px] lg:h-[310px] xl:h-[476px] xl:w-[333px]"
     style={{ boxShadow: "0px 4px 20px 0px #0000000D" }}
 >
     <Image
         src={image}
         alt={title}
-        class="w-full h-[200px] sm:h-[300px] object-cover rounded-t-[20px]"
+        class="w-full h-[200px] sm:h-[300px] lg:h-[130px] xl:h-[200px] object-cover rounded-t-[20px]"
     />
-    <div class="flex flex-col items-start mt-8 px-4">
-        <span class="font-unisans font-[900] text-[28px] text-primary"
+    <div class="flex flex-col items-start mt-8 lg:mt-4 px-4">
+        <span
+            class="font-unisans font-[900] text-[28px] lg:text-[18px] xl:text-[28px] whitespace-nowrap text-primary"
             >{`${title}`}</span
         >
         <p
-            class="mt-4 font-gotham font-[400] text-[14px] leading-[20px] text-secondary"
+            class="mt-4 font-gotham font-[400] text-[14px] lg:text-[12px] leading-[20px] lg:leading-[14px] lg:mt-2 text-secondary"
         >
             {text}
         </p>

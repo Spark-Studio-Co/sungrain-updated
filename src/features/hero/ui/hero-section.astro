@@ -7,27 +7,33 @@ import Image from "astro/components/Image.astro";
 import wheat from "../../../../public/images/wheat.webp";
 ---
 
-<section class="flex items-start flex-col lg:flex-row mt-16 relative">
-    <div class="flex flex-col items-start">
-        <Heading text="качественное зерно c" orangeText="sungrain" level={1} />
-        <Paragraph
-            className="mt-4"
-            text="Честность – наш принцип. С Sun Grain вы получаете качественное зерно и прозрачные условия. Мы строим бизнес на доверии, чтобы вы выбирали лучшее. SunGrain – по-настоящему честный бизнес."
-        />
-        <Button
-            label="Связаться с нами"
-            className="mt-8"
-            buttonType="link"
-            href="#contacts"
-        />
-    </div>
-    <div class="w-full relative h-[240px] mt-4">
+<>
+    <section
+        class="max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] mx-auto flex items-start flex-col lg:flex-row mt-36 lg:mt-48"
+    >
+        <div class="flex flex-col items-start">
+            <Heading
+                text="качественное\nзерно c"
+                orangeText="sungrain"
+                level={1}
+            />
+            <Paragraph
+                className="mt-4"
+                text="Честность – наш принцип. С Sun Grain вы получаете качественное зерно и прозрачные условия. Мы строим бизнес на доверии, чтобы вы выбирали лучшее. SunGrain – по-настоящему честный бизнес."
+            />
+            <Button
+                label="Связаться с нами"
+                className="mt-8"
+                buttonType="link"
+                href="#contacts"
+            />
+        </div>
+    </section>
+    <!-- <div class="w-full min-h-[240px] sm:min-h-[340px] relative">
         <Image
             src={wheat}
             alt="Wheat"
-            class="object-contain absolute -left-40 lg:-left-0 lg:-right-40 lg:scale-x-[-1] max-h-[310px]"
-            width={486}
-            height={310}
+            class="absolute -left-40 sm:-left-52 lg:scale-x-[-1] lg:left-0 lg:right-84 max-h-[310px] max-w-[490px] sm:max-w-[700px] sm:max-h-[410px]"
         />
-    </div>
-</section>
+    </div> -->
+</>

@@ -19,7 +19,7 @@ export const Menu = () => {
         toggleBurgerMenu()
 
         setTimeout(() => {
-            const element = document.querySelector(href || '')
+            const element = document.querySelector(href as string)
             element?.scrollIntoView({ behavior: 'smooth' })
         }, 500)
     }
@@ -81,20 +81,32 @@ export const Menu = () => {
     return (
         <div
             ref={menuRef}
-            className="absolute inset-0 bg-background translate-y-[-100%] bg-white z-40 flex items-center justify-center overflow-hidden"
+            className="absolute flex-col inset-0 bg-background translate-y-[-100%] bg-white z-40 flex items-center justify-center overflow-hidden"
         >
             <nav className="text-center">
                 {links.map((link) => (
                     <a
                         key={link.href}
                         href={link.href}
-                        className="menu-item block text-3xl font-bold mb-8 z-40 text-primary"
+                        className="menu-item block text-3xl font-montserrat font-medium mb-8 z-40 text-primary"
                         onClick={handleLinkClick}
                     >
                         {link.label}
                     </a>
                 ))}
             </nav>
+            <div className="menu-item flex flex-col items-center">
+                <a
+                    href="tel:+7 775 993 25 87"
+                    className="mt-8 text-primary font-[500] font-montserrat text-[20px]"
+                >+7 775 993 25 87</a
+                >
+                <a
+                    href="mailto:sungrain@gmail.com"
+                    className="mt-2 text-primary font-[500] font-montserrat text-[20px]"
+                >sungrain@gmail.com</a
+                >
+            </div>
         </div>
     )
 }

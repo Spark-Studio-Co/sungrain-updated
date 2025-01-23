@@ -814,6 +814,11 @@
   resolved "https://registry.yarnpkg.com/@types/unist/-/unist-3.0.3.tgz#acaab0f919ce69cce629c2d4ed2eb4adc1b6c20c"
   integrity sha512-ko/gIFJRv177XgZsZcBwnqJN5x/Gien8qNOn0D5bQU/zAzVf9Zt3BlcUiLqhV9y4ARk0GbT3tnUiPNgnTXzc/Q==
 
+"@uidotdev/usehooks@^2.4.1":
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/@uidotdev/usehooks/-/usehooks-2.4.1.tgz#4b733eaeae09a7be143c6c9ca158b56cc1ea75bf"
+  integrity sha512-1I+RwWyS+kdv3Mv0Vmc+p0dPYH0DTRAo04HLyXReYBL9AeseDWUJyi4THuksBJcu9F0Pih69Ak150VDnqbVnXg==
+
 "@ungap/structured-clone@^1.0.0":
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/@ungap/structured-clone/-/structured-clone-1.2.1.tgz#28fa185f67daaf7b7a1a8c1d445132c5d979f8bd"
