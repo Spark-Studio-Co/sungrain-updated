@@ -7,7 +7,6 @@
   @apply font-gotham;
 }
 
-
 .header__link::after {
   content: "";
   position: absolute;
@@ -17,10 +16,10 @@
   left: 0;
   background-color: currentColor;
   transition: width 0.3s ease;
-  color: #FCBD20;
+  color: #fcbd20;
 }
 
 .header__link:hover::after {
   width: 100%;
-  color: #FCBD20;
+  color: #fcbd20;
 }
