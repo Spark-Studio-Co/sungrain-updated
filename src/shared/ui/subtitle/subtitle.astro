@@ -1,12 +1,12 @@
 ---
 interface Props {
-    text: string;
-    className?: string;
+  text: string;
+  className?: string;
 }
 
-const { text, className = "" } = Astro.props;
+const { text, className = '' } = Astro.props;
 ---
 
 <span class={`${className} font-gotham font-[400] text-[16px] leading-[28px]`}>
-    {text}
+  {text}
 </span>

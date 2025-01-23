@@ -1,19 +1,19 @@
-import { BurgerButton } from "./burger-button";
-import { useEffect } from "react";
+import { BurgerButton } from './burger-button';
+import { useEffect } from 'react';
 
-import { LogoIcon } from "../../../shared/icons/logo-icon";
-import InstagramIcon from "../../../shared/icons/instagram-icon";
-import WhatsAppIcon from "../../../shared/icons/whatsapp-icon";
-import PcLogoIcon from "../../../shared/icons/pc-logo-icon";
-import { links } from "../model/links";
+import { LogoIcon } from '../../../shared/icons/logo-icon';
+import InstagramIcon from '../../../shared/icons/instagram-icon';
+import WhatsAppIcon from '../../../shared/icons/whatsapp-icon';
+import PcLogoIcon from '../../../shared/icons/pc-logo-icon';
+import { links } from '../model/links';
 
-import styles from "./header.module.css";
+import styles from './header.module.css';
 
 export const Header = () => {
   useEffect(() => {
-    document.documentElement.style.scrollBehavior = "smooth";
+    document.documentElement.style.scrollBehavior = 'smooth';
     return () => {
-      document.documentElement.style.scrollBehavior = "auto";
+      document.documentElement.style.scrollBehavior = 'auto';
     };
   }, []);
 

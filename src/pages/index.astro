@@ -1,22 +1,22 @@
 ---
-import Layout from "../layouts/main-layout.astro";
-import { Header } from "../features/navigation/ui/header";
+import Layout from '../layouts/main-layout.astro';
+import { Header } from '../features/navigation/ui/header';
 
 //sections
-import HeroSection from "../features/hero/ui/hero-section.astro";
-import AboutSection from "../features/about/ui/about-section.astro";
-import PrinciplesSection from "../features/principles/ui/principles-section.astro";
-import ServicesSection from "../features/services/ui/services-section.astro";
-import ContactSection from "../features/contact/ui/contact-section.astro";
-import { Menu } from "../features/navigation/ui/menu";
+import HeroSection from '../features/hero/ui/hero-section.astro';
+import AboutSection from '../features/about/ui/about-section.astro';
+import PrinciplesSection from '../features/principles/ui/principles-section.astro';
+import ServicesSection from '../features/services/ui/services-section.astro';
+import ContactSection from '../features/contact/ui/contact-section.astro';
+import { Menu } from '../features/navigation/ui/menu';
 ---
 
 <Layout>
-	<Header client:load />
-	<Menu client:load />
-	<HeroSection />
-	<AboutSection />
-	<PrinciplesSection />
-	<ServicesSection />
-	<ContactSection />
+  <Header client:load />
+  <Menu client:load />
+  <HeroSection />
+  <AboutSection />
+  <PrinciplesSection />
+  <ServicesSection />
+  <ContactSection />
 </Layout>

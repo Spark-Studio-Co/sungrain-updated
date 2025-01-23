@@ -1,50 +1,50 @@
 ---
 interface BaseProps {
-    label: string;
-    className?: string;
-    variant?: "default" | "outline";
+  label: string;
+  className?: string;
+  variant?: 'default' | 'outline';
 }
 
 interface DefaultButtonProps extends BaseProps {
-    buttonType?: "default";
-    [key: string]: any;
+  buttonType?: 'default';
+  [key: string]: any;
 }
 
 interface LinkButtonProps extends BaseProps {
-    buttonType: "link";
-    href: string;
-    [key: string]: any;
+  buttonType: 'link';
+  href: string;
+  [key: string]: any;
 }
 
 type Props = DefaultButtonProps | LinkButtonProps;
 
 const {
-    buttonType = "default",
-    label,
-    className = "",
-    variant = "default",
-    href,
-    ...rest
+  buttonType = 'default',
+  label,
+  className = '',
+  variant = 'default',
+  href,
+  ...rest
 } = Astro.props;
 
 const baseClassName =
-    variant === "outline"
-        ? `${className} rounded-[32px] h-[50px] w-[200px] xl:h-[50px] xl:w-[200px] lg:w-[140px] lg:h-[40px] xl:text-[16px] lg:text-[14px] flex items-center justify-center border border-primary text-primary font-montserrat font-[500] text-[16px] hover:bg-primary hover:text-white transition-colors duration-200`
-        : `${className} rounded-[32px] bg-primary h-[50px] w-[200px] flex items-center justify-center text-white font-montserrat font-[500] text-[16px] hover:bg-white hover:text-primary hover:border hover:border-primary transition-colors duration-200`;
+  variant === 'outline'
+    ? `${className} rounded-[32px] h-[50px] w-[200px] xl:h-[50px] xl:w-[200px] lg:w-[140px] lg:h-[40px] xl:text-[16px] lg:text-[14px] flex items-center justify-center border border-primary text-primary font-montserrat font-[500] text-[16px] hover:bg-primary hover:text-white transition-colors duration-200`
+    : `${className} rounded-[32px] bg-primary h-[50px] w-[200px] flex items-center justify-center text-white font-montserrat font-[500] text-[16px] hover:bg-white hover:text-primary hover:border hover:border-primary transition-colors duration-200`;
 ---
 
 {
-    buttonType === "link" ? (
-        <a
-            href={href}
-            class:list={[baseClassName, "scroll-smooth"]}
-            onclick="document.querySelector(this.getAttribute('href')).scrollIntoView({behavior: 'smooth'}); return false;"
-        >
-            {label}
-        </a>
-    ) : (
-        <button class={baseClassName} {...rest}>
-            {label}
-        </button>
-    )
+  buttonType === 'link' ? (
+    <a
+      href={href}
+      class:list={[baseClassName, 'scroll-smooth']}
+      onclick="document.querySelector(this.getAttribute('href')).scrollIntoView({behavior: 'smooth'}); return false;"
+    >
+      {label}
+    </a>
+  ) : (
+    <button class={baseClassName} {...rest}>
+      {label}
+    </button>
+  )
 }

@@ -1,71 +1,67 @@
 ---
-import Heading from "../../../shared/ui/heading/heading.astro";
-import Paragraph from "../../../shared/ui/paragraph/paragraph.astro";
-import Image from "astro/components/Image.astro";
-import { Form } from "./form";
+import Heading from '../../../shared/ui/heading/heading.astro';
+import Paragraph from '../../../shared/ui/paragraph/paragraph.astro';
+import Image from 'astro/components/Image.astro';
+import { Form } from './form';
 
-import contacts01 from "../../../../public/images/contacts01.webp";
-import contacts02 from "../../../../public/images/contacts02.webp";
+import contacts01 from '../../../../public/images/contacts01.webp';
+import contacts02 from '../../../../public/images/contacts02.webp';
 ---
 
 <section class="flex flex-col mt-16 lg:mt-64" id="contacts">
-    <div class="w-full relative">
-        <div class="w-full h-full">
-            <div class="flex flex-col lg:flex-row relative">
-                <div
-                    class="w-full lg:w-1/2 bg-[#F38810] min-h-[440px] lg:min-h-[806px] relative flex flex-col"
-                >
-                    <div
-                        class="w-[86%] lg:w-[80%] mx-auto py-14 lg:py-16 flex-1"
-                    >
-                        <Heading
-                            text="свяжитесь с нами \nуже сейчас"
-                            level={5}
-                            className="text-white uppercase lg:w-[80%]"
-                        />
-                        <Paragraph
-                            className="mt-8 text-white lg:w-[494px] leading-7 lg:mb-8"
-                            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vitae venenatis arcu. Ut justo arcu, ullamcorper vel tellus ut, semper volutpat lorem."
-                        />
-                        <Form client:only />
-                        <div class="flex flex-col items-start">
-                            <a
-                                href="tel:+7 775 993 25 87"
-                                class="mt-8 text-white font-[500] font-montserrat text-[20px]"
-                                >+7 775 993 25 87</a
-                            >
-                            <a
-                                href="mailto:sungrain@gmail.com"
-                                class="mt-4 text-white font-[500] font-montserrat text-[20px]"
-                                >sungrain@gmail.com</a
-                            >
-                        </div>
-                    </div>
-                    <div class="w-[86%] lg:w-[80%] mx-auto pb-8">
-                        <span
-                            class="block text-white font-[500] font-montserrat text-[20px]"
-                        >
-                            Developed By Spark Studio
-                        </span>
-                    </div>
-                </div>
-                <div class="hidden lg:block w-full lg:w-1/2 relative">
-                    <Image
-                        src={contacts01}
-                        alt="Sunflower field"
-                        class="w-full h-full object-cover min-h-[865px]"
-                    />
-                    <div
-                        class="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
-                    >
-                        <Image
-                            src={contacts02}
-                            alt="25 years badge"
-                            class="w-[197px] h-[197px] rounded-full"
-                        />
-                    </div>
-                </div>
+  <div class="w-full relative">
+    <div class="w-full h-full">
+      <div class="flex flex-col lg:flex-row relative">
+        <div
+          class="w-full lg:w-1/2 bg-[#F38810] min-h-[440px] lg:min-h-[806px] relative flex flex-col"
+        >
+          <div class="w-[86%] lg:w-[80%] mx-auto py-14 lg:py-16 flex-1">
+            <Heading
+              text="свяжитесь с нами \nуже сейчас"
+              level={5}
+              className="text-white uppercase lg:w-[80%]"
+            />
+            <Paragraph
+              className="mt-8 text-white lg:w-[494px] leading-7 lg:mb-8"
+              text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vitae venenatis arcu. Ut justo arcu, ullamcorper vel tellus ut, semper volutpat lorem."
+            />
+            <Form client:only />
+            <div class="flex flex-col items-start">
+              <a
+                href="tel:+7 775 993 25 87"
+                class="mt-8 text-white font-[500] font-montserrat text-[20px]"
+                >+7 775 993 25 87</a
+              >
+              <a
+                href="mailto:sungrain@gmail.com"
+                class="mt-4 text-white font-[500] font-montserrat text-[20px]"
+                >sungrain@gmail.com</a
+              >
             </div>
+          </div>
+          <div class="w-[86%] lg:w-[80%] mx-auto pb-8">
+            <span
+              class="block text-white font-[500] font-montserrat text-[20px]"
+            >
+              Developed By Spark Studio
+            </span>
+          </div>
         </div>
+        <div class="hidden lg:block w-full lg:w-1/2 relative">
+          <Image
+            src={contacts01}
+            alt="Sunflower field"
+            class="w-full h-full object-cover min-h-[865px]"
+          />
+          <div class="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+            <Image
+              src={contacts02}
+              alt="25 years badge"
+              class="w-[197px] h-[197px] rounded-full"
+            />
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </section>

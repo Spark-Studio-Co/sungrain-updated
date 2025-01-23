@@ -1,45 +1,44 @@
 ---
-import Heading from "../../../shared/ui/heading/heading.astro";
-import Paragraph from "../../../shared/ui/paragraph/paragraph.astro";
-import Button from "../../../shared/ui/button/button.astro";
-import Image from "astro/components/Image.astro";
+import Heading from '../../../shared/ui/heading/heading.astro';
+import Paragraph from '../../../shared/ui/paragraph/paragraph.astro';
+import Button from '../../../shared/ui/button/button.astro';
+import Image from 'astro/components/Image.astro';
 
-import wheat from "../../../../public/images/wheat2.webp";
+import wheat from '../../../../public/images/wheat2.webp';
 ---
 
 <>
-    <main
-        class="max-w-[90%]  lg:max-w-[80%] 3xl:max-w-[1560px] mx-auto flex items-start flex-col lg:flex-row mt-36 lg:mt-48"
-    >
-        <div class="flex flex-col items-start">
-            <Heading
-                text="качественное \nзерно с"
-                orangeText="sungrain"
-                className="lg:hidden"
-                level={1}
-            />
-            <Heading
-                text="качественное зерно \nс TOO"
-                orangeText="sungrain"
-                className="hidden lg:block"
-                level={1}
-            />
-            <Paragraph
-                className="mt-4"
-                text="Честность – наш принцип. С Sun Grain вы получаете качественное зерно и прозрачные условия. Мы строим бизнес на доверии, чтобы вы выбирали лучшее. SunGrain – по-настоящему честный бизнес."
-            />
-            <Button
-                label="Связаться с нами"
-                className="mt-8"
-                buttonType="link"
-                href="#contacts"
-            />
-
-        </div>
-        <Image
-            src={wheat}
-            alt="Wheat"
-            class="absolute   lg:right-0 lg:max-w-[500px] lg:max-h-[400px] max-h-[310px] max-w-[490px] sm:max-w-[700px] sm:max-h-[410px]"
-        />
-    </main>
+  <main
+    class="max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] mx-auto flex items-start flex-col lg:flex-row mt-36 lg:mt-48"
+  >
+    <div class="flex flex-col items-start">
+      <Heading
+        text="качественное \nзерно с"
+        orangeText="sungrain"
+        className="lg:hidden"
+        level={1}
+      />
+      <Heading
+        text="качественное зерно \nс TOO"
+        orangeText="sungrain"
+        className="hidden lg:block"
+        level={1}
+      />
+      <Paragraph
+        className="mt-4"
+        text="Честность – наш принцип. С Sun Grain вы получаете качественное зерно и прозрачные условия. Мы строим бизнес на доверии, чтобы вы выбирали лучшее. SunGrain – по-настоящему честный бизнес."
+      />
+      <Button
+        label="Связаться с нами"
+        className="mt-8"
+        buttonType="link"
+        href="#contacts"
+      />
+    </div>
+    <Image
+      src={wheat}
+      alt="Wheat"
+      class="absolute lg:right-0 lg:max-w-[500px] lg:max-h-[400px] max-h-[310px] max-w-[490px] sm:max-w-[700px] sm:max-h-[410px]"
+    />
+  </main>
 </>

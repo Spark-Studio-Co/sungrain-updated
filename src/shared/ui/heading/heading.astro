@@ -1,31 +1,31 @@
 ---
 interface Props {
-    text: string;
-    orangeText?: string;
-    level?: 1 | 2 | 3 | 4 | 5 | 6;
-    className?: string;
+  text: string;
+  orangeText?: string;
+  level?: 1 | 2 | 3 | 4 | 5 | 6;
+  className?: string;
 }
 
-const { text, orangeText = "", level = 1, className = "" } = Astro.props;
+const { text, orangeText = '', level = 1, className = '' } = Astro.props;
 
-const lines = text.split("\n");
+const lines = text.split('\n');
 const Tag = `h${level}`;
 ---
 
 <Tag
-    class:list={[
-        `font-unisans text-secondary font-[900]  ${level < 2 ? " xl:leading-[128px] text-[28px] sm:text-[36px] md:text-[44px] lg:text-[64px] xl:text-[85px]" : "text-[30px] sm:text-[44px] xl:text-[48px]"}`,
-        className,
-    ]}
+  class:list={[
+    `font-unisans text-secondary font-[900]  ${level < 2 ? ' xl:leading-[128px] text-[28px] sm:text-[36px] md:text-[44px] lg:text-[64px] xl:text-[85px]' : 'text-[30px] sm:text-[44px] xl:text-[48px]'}`,
+    className,
+  ]}
 >
-    {
-        lines.map((line, index) => (
-            <>
-                {line.toUpperCase()}
-                {index < lines.length - 1 && <br />}
-            </>
-        ))
-    }
-    {orangeText && " "}
-    <span class="text-primary">{orangeText.toUpperCase()}</span>
+  {
+    lines.map((line, index) => (
+      <>
+        {line.toUpperCase()}
+        {index < lines.length - 1 && <br />}
+      </>
+    ))
+  }
+  {orangeText && ' '}
+  <span class="text-primary">{orangeText.toUpperCase()}</span>
 </Tag>

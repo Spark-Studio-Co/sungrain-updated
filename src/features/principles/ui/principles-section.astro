@@ -1,39 +1,39 @@
 ---
-import Subtitle from "../../../shared/ui/subtitle/subtitle.astro";
-import Heading from "../../../shared/ui/heading/heading.astro";
-import Paragraph from "../../../shared/ui/paragraph/paragraph.astro";
-import ListItem from "./list-item.astro";
-import Image from "astro/components/Image.astro";
+import Subtitle from '../../../shared/ui/subtitle/subtitle.astro';
+import Heading from '../../../shared/ui/heading/heading.astro';
+import Paragraph from '../../../shared/ui/paragraph/paragraph.astro';
+import ListItem from './list-item.astro';
+import Image from 'astro/components/Image.astro';
 
-import { listContent } from "../model/list-content";
+import { listContent } from '../model/list-content';
 
-import principles01 from "../../../../public/images/principles01.webp";
+import principles01 from '../../../../public/images/principles01.webp';
 ---
 
 <section
-    class="max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] mx-auto flex items-end flex-col xl:flex-row-reverse mt-16 xl:mt-20 3xl:mt-32 3xl:mb-32"
-    id="principles"
+  class="max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] mx-auto flex items-end flex-col xl:flex-row-reverse mt-16 xl:mt-20 3xl:mt-32 3xl:mb-32"
+  id="principles"
 >
-    <div class="flex items-end flex-col">
-        <Subtitle text="10 лет опыта на Рынке" className="text-[#D25127]" />
-        <Heading
-            text="Честность и качество \nв каждом зерне!"
-            level={3}
-            className="mt-3 text-end"
-        />
-        <Paragraph
-            className="mt-8 mb-4 text-end"
-            text="Честность – наш принцип. С SunGrain вы получаете качественное зерно и прозрачные условия. Мы строим бизнес на доверии, чтобы вы выбирали лучшее. SunGrain – по-настоящему честный бизнес."
-        />
-        <div class="flex flex-col gap-4">
-            {listContent.map(({ text }) => <ListItem text={text} />)}
-        </div>
+  <div class="flex items-end flex-col">
+    <Subtitle text="10 лет опыта на Рынке" className="text-[#D25127]" />
+    <Heading
+      text="Честность и качество \nв каждом зерне!"
+      level={3}
+      className="mt-3 text-end"
+    />
+    <Paragraph
+      className="mt-8 mb-4 text-end"
+      text="Честность – наш принцип. С SunGrain вы получаете качественное зерно и прозрачные условия. Мы строим бизнес на доверии, чтобы вы выбирали лучшее. SunGrain – по-настоящему честный бизнес."
+    />
+    <div class="flex flex-col gap-4">
+      {listContent.map(({ text }) => <ListItem text={text} />)}
     </div>
-    <div class="w-full relative h-[170px] sm:h-[240px] mt-8 lg:mt-0">
-        <Image
-            src={principles01}
-            alt="Wheat"
-            class="object-contain scale-x-[-1] absolute -left-10 lg:-left-48 lg:-top-16 xl:-left-48 xl:-top-48 2xl:-top-52 2xl:-left-64 3xl:-left-[18rem] 4xl:-left-[24rem] 5xl:-left-[30rem] 6xl:-left-[36rem] sm:-left-16 2xl:max-w-[800px] 3xl:max-w-[1120px] xl:max-w-[630px] xl:max-h-[484px] lg:max-w-[700px] sm:min-w-[500px] sm:max-h-[310px] max-w-[360px] max-h-[196px]"
-        />
-    </div>
+  </div>
+  <div class="w-full relative h-[170px] sm:h-[240px] mt-8 lg:mt-0">
+    <Image
+      src={principles01}
+      alt="Wheat"
+      class="object-contain scale-x-[-1] absolute -left-10 lg:-left-48 lg:-top-16 xl:-left-48 xl:-top-48 2xl:-top-52 2xl:-left-64 3xl:-left-[18rem] 4xl:-left-[24rem] 5xl:-left-[30rem] 6xl:-left-[36rem] sm:-left-16 2xl:max-w-[800px] 3xl:max-w-[1120px] xl:max-w-[630px] xl:max-h-[484px] lg:max-w-[700px] sm:min-w-[500px] sm:max-h-[310px] max-w-[360px] max-h-[196px]"
+    />
+  </div>
 </section>
