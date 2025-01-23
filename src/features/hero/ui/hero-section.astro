@@ -4,12 +4,12 @@ import Paragraph from "../../../shared/ui/paragraph/paragraph.astro";
 import Button from "../../../shared/ui/button/button.astro";
 import Image from "astro/components/Image.astro";
 
-import wheat from "../../../../public/images/wheat.webp";
+import wheat from "../../../../public/images/wheat2.webp";
 ---
 
 <>
-    <section
-        class="max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] mx-auto flex items-start flex-col lg:flex-row mt-36 lg:mt-48"
+    <main
+        class="max-w-[90%]  lg:max-w-[80%] 3xl:max-w-[1560px] mx-auto flex items-start flex-col lg:flex-row mt-36 lg:mt-48"
     >
         <div class="flex flex-col items-start">
             <Heading
@@ -34,15 +34,12 @@ import wheat from "../../../../public/images/wheat.webp";
                 buttonType="link"
                 href="#contacts"
             />
+
         </div>
-    </section>
-    <div
-        class="w-full min-h-[240px] sm:min-h-[340px] relative lg:w-auto lg:max-w-[50%] lg:translate-x-[50%] lg:translate-y-[-50%] overflow-hidden"
-    >
         <Image
             src={wheat}
             alt="Wheat"
-            class="absolute -left-40 sm:-left-52 lg:scale-x-[-1] lg:left-96 max-h-[310px] max-w-[490px] sm:max-w-[700px] sm:max-h-[410px]"
+            class="absolute   lg:right-0 lg:max-w-[500px] lg:max-h-[400px] max-h-[310px] max-w-[490px] sm:max-w-[700px] sm:max-h-[410px]"
         />
-    </div>
+    </main>
 </>
