@@ -8,12 +8,16 @@ import { getLangFromUrl, useTranslations } from "../../../i18n/utils";
 
 import contacts01 from "../../../../public/images/contacts01.webp";
 import BackgroundLeafIcon from "../../../shared/icons/bg-leaf-icon";
+import type { onumber } from "astro:schema";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<section class="flex flex-col mt-16 lg:mt-64 3xl:max-w-[1560px] 4xl:max-w-[1800px] m-auto" id="contacts">
+<section
+    class="flex flex-col mt-16 lg:mt-64 3xl:max-w-[1560px] 4xl:max-w-[1800px] m-auto"
+    id="contacts"
+>
     <div class="w-full relative">
         <div class="w-full h-full">
             <div class="flex flex-col lg:flex-row relative">
@@ -23,38 +27,61 @@ const t = useTranslations(lang);
                     <div
                         class="w-[86%] lg:w-[80%] mx-auto py-14 lg:py-16 flex-1"
                     >
-                        <Heading
-                            text={t("contact.title")}
-                            level={5}
-                            className="text-white uppercase lg:w-[80%]"
-                        />
-                        <Paragraph
-                            className="mt-8 text-white lg:w-[90%] xl:w-[494px] leading-7 lg:mb-8"
-                            text={t("contact.description")}
-                        />
-                        <Form client:only lang={lang} />
-                        <div class="flex flex-col items-start">
-                            <a
-                                href="tel:+77768261717
-"
-                                class="mt-8 text-white font-[500] font-montserrat text-[20px]"
-                                >+77768261717</a
+                        <div
+                            class="contact-heading opacity-0 translate-x-[-100px]"
+                        >
+                            <Heading
+                                text={t("contact.title")}
+                                level={5}
+                                className="text-white uppercase lg:w-[80%]"
+                            />
+                        </div>
+                        <div
+                            class="contact-description opacity-0 translate-x-[-100px]"
+                        >
+                            <Paragraph
+                                className="mt-8 text-white lg:w-[90%] xl:w-[494px] leading-7 lg:mb-8"
+                                text={t("contact.description")}
+                            />
+                        </div>
+                        <div
+                            class="contact-form opacity-0 translate-x-[-100px]"
+                        >
+                            <Form client:only lang={lang} />
+                        </div>
+                        <div class="flex flex-col items-start mt-8">
+                            <div
+                                class="contact-phone opacity-0 translate-x-[-100px]"
                             >
-                            <a
-                                href="mailto:ceo@sungrain.kz"
-                                class="mt-4 text-white font-[500] font-montserrat text-[20px]"
-                                >ceo@sungrain.kz</a
+                                <a
+                                    href="tel:+77759932587"
+                                    class="text-white font-[500] font-montserrat text-[20px]"
+                                    >+7 775 993 25 87</a
+                                >
+                            </div>
+                            <div
+                                class="contact-email opacity-0 mt-4 translate-x-[-100px]"
                             >
+                                <a
+                                    href="mailto:ceo@sungrain.kz"
+                                    class="mt-4 text-white font-[500] font-montserrat text-[20px]"
+                                    >ceo@sungrain.kz</a
+                                >
+                            </div>
                         </div>
                     </div>
                     <div class="w-[86%] lg:w-[80%] mx-auto pb-8">
-                        <a
-                            href="https://sparkstudio.kz"
-                            target="_blank"
-                            class="block text-white font-[500] font-montserrat text-[20px]"
+                        <div
+                            class="contact-credits opacity-0 translate-x-[-100px]"
                         >
-                            Developed By Spark Studio
-                        </a>
+                            <a
+                                href="https://sparkstudio.kz"
+                                target="_blank"
+                                class="block text-white font-[500] font-montserrat text-[20px]"
+                            >
+                                Developed By Spark Studio
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div class="hidden lg:block w-full lg:w-1/2 relative">
@@ -67,7 +94,7 @@ const t = useTranslations(lang);
                         class="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
                     >
                         <div
-                            class="w-[197px] h-[197px] bg-primary rounded-full border-4 border-white items-center flex justify-center relative"
+                            class="contact-badge w-[197px] h-[197px] bg-primary rounded-full border-4 border-white items-center flex justify-center relative [transform-style:preserve-3d]"
                         >
                             <div
                                 class="absolute inset-0 flex items-center justify-center"
@@ -86,3 +113,93 @@ const t = useTranslations(lang);
     </div>
     <SuccessPopup client:only />
 </section>
+
+<script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const animateContact = () => {
+        const timeline = gsap.timeline({
+            scrollTrigger: {
+                trigger: "#contacts",
+                start: "top 80%",
+                toggleActions: "play none none none",
+            },
+        });
+
+        // Badge coin flip animation
+        gsap.to(".contact-badge", {
+            scrollTrigger: {
+                trigger: "#contacts",
+                start: "top 80%",
+                toggleActions: "play none none none",
+            },
+            rotateY: 360,
+            duration: 1.5,
+            ease: "power2.inOut",
+        });
+
+        timeline
+            .to(".contact-heading", {
+                opacity: 1,
+                x: 0,
+                duration: 0.8,
+                ease: "power3.out",
+            })
+            .to(
+                ".contact-description",
+                {
+                    opacity: 1,
+                    x: 0,
+                    duration: 0.8,
+                    ease: "power3.out",
+                },
+                "-=0.6",
+            )
+            .to(
+                ".contact-form",
+                {
+                    opacity: 1,
+                    x: 0,
+                    duration: 0.8,
+                    ease: "power3.out",
+                },
+                "-=0.6",
+            )
+            .to(
+                ".contact-phone",
+                {
+                    opacity: 1,
+                    x: 0,
+                    duration: 0.8,
+                    ease: "power3.out",
+                },
+                "-=0.6",
+            )
+            .to(
+                ".contact-email",
+                {
+                    opacity: 1,
+                    x: 0,
+                    duration: 0.8,
+                    ease: "power3.out",
+                },
+                "-=0.6",
+            )
+            .to(
+                ".contact-credits",
+                {
+                    opacity: 1,
+                    x: 0,
+                    duration: 0.8,
+                    ease: "power3.out",
+                },
+                "-=0.6",
+            );
+    };
+
+    // Run animation when the page loads
+    window.addEventListener("load", animateContact);
+</script>

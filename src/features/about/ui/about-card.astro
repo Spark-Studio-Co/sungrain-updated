@@ -1,15 +1,13 @@
 ---
 import Button from "../../../shared/ui/button/button.astro";
-import Image from "astro/components/Image.astro";
+import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
 import { getLangFromUrl, useTranslations } from "../../../i18n/utils";
-import type { ui, defaultLang } from "../../../i18n/ui";
 
 interface Props {
     image: ImageMetadata;
     title: string;
-    text: string;
-    popupText: keyof (typeof ui)[typeof defaultLang];
+    popupText: string;
 }
 
 const { image, title, popupText } = Astro.props;
@@ -18,18 +16,24 @@ const t = useTranslations(lang);
 ---
 
 <div
-    class="flex flex-col items-start w-full h-[476px] sm:h-[576px] rounded-[20px] lg:w-min-[195px] lg:h-[310px] xl:h-[400px] xl:w-[333px]"
+    class="flex flex-col items-start w-full h-[476px] sm:h-[576px] rounded-[20px] lg:w-min-[195px] lg:h-[310px] xl:h-[400px] 3xl:w-[333px] bg-white"
     style={{ boxShadow: "0px 4px 20px 0px #0000000D" }}
 >
     <Image
         src={image}
         alt={title}
         class="w-full h-[200px] sm:h-[300px] lg:h-[130px] xl:h-[35%] object-cover rounded-t-[20px]"
+        width={800}
+        height={600}
+        loading="lazy"
+        decoding="async"
+        format="webp"
+        quality={80}
     />
     <div class="flex flex-col justify-between h-full w-full px-4 pt-8 lg:pt-4">
         <div>
             <span
-                class="font-unisans font-[900] text-[28px] lg:text-[18px] xl:text-[28px] whitespace-nowrap text-primary"
+                class="font-unisans font-[900] text-[28px] lg:text-[18px] xl:text-[28px] text-primary"
                 >{title}</span
             >
             <p
@@ -39,7 +43,7 @@ const t = useTranslations(lang);
                 {popupText}
             </p>
         </div>
-        <div class="mb-8">
+        <div class="mb-4">
             <Button
                 variant="outline"
                 className="mt-4"
@@ -76,22 +80,21 @@ const t = useTranslations(lang);
     });
 
     const textElements = document.querySelectorAll("[data-text]");
+    let resizeTimeout: number;
 
     function updateTextLength() {
         const width = window.innerWidth;
         let maxLength = 140; // Default for mobile
 
         if (width >= 1536) {
-            // 2xl
-            maxLength = 220;
+            maxLength = 160;
         } else if (width >= 1280) {
-            // xl
-            maxLength = 200;
+            maxLength = 100;
+        } else if (width >= 1170) {
+            maxLength = 50;
         } else if (width >= 1024) {
-            // lg
-            maxLength = 60;
+            maxLength = 40;
         } else if (width >= 640) {
-            // sm
             maxLength = 260;
         }
 
@@ -106,6 +109,9 @@ const t = useTranslations(lang);
     // Initial update
     updateTextLength();
 
-    // Update on resize
-    window.addEventListener("resize", updateTextLength);
+    // Debounced resize handler
+    window.addEventListener("resize", () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(updateTextLength, 150);
+    });
 </script>

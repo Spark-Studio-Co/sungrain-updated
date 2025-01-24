@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://sungrain.kz/sitemap-index.xml
+
+# Language specific sitemaps
+Sitemap: https://sungrain.kz/sitemap-ru.xml
+Sitemap: https://sungrain.kz/sitemap-en.xml

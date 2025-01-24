@@ -19,25 +19,106 @@ const t = useTranslations(lang);
     id="principles"
 >
     <div class="flex items-end flex-col">
-        <Subtitle text={t("principles.subtitle")} className="text-[#D25127]" />
-        <Heading
-            text={t("principles.title")}
-            level={3}
-            className="mt-3 text-end"
-        />
-        <Paragraph
-            className="mt-8 mb-4 text-end"
-            text={t("principles.paragraph")}
-        />
+        <div class="principles-subtitle opacity-0 translate-x-[100px]">
+            <Subtitle text={t("principles.subtitle")} className="text-[#D25127]" />
+        </div>
+        <div class="principles-heading opacity-0 translate-x-[100px]">
+            <Heading
+                text={t("principles.title")}
+                level={3}
+                className="mt-3 text-end"
+            />
+        </div>
+        <div class="principles-paragraph opacity-0 translate-x-[100px]">
+            <Paragraph
+                className="mt-8 mb-4 text-end"
+                text={t("principles.paragraph")}
+            />
+        </div>
         <div class="flex flex-col gap-4 w-full items-end">
-            {listContent.map(({ text }) => <ListItem text={t(text)} />)}
+            {listContent.map(({ text }, index) => (
+                <div class={`principles-item opacity-0 translate-x-[100px] item-${index}`}>
+                    <ListItem text={t(text)} />
+                </div>
+            ))}
         </div>
     </div>
     <div class="w-full relative h-[170px] sm:h-[240px] mt-8 lg:mt-0">
-        <Image
-            src={principles01}
-            alt="Wheat"
-            class="object-contain scale-x-[-1] absolute -left-10 lg:-left-48 lg:-top-16 xl:-left-48 xl:-top-48 2xl:-top-52 2xl:-left-64 3xl:-left-[18rem] 4xl:-left-[24rem] 5xl:-left-[30rem] 6xl:-left-[36rem] sm:-left-16 2xl:max-w-[800px] 3xl:max-w-[1120px] xl:max-w-[630px] xl:max-h-[484px] lg:max-w-[700px] sm:min-w-[500px] sm:max-h-[310px] max-w-[360px] max-h-[196px]"
-        />
+        <div class="principles-image opacity-0 translate-x-[-200px]">
+            <Image
+                src={principles01}
+                alt="Wheat"
+                class="object-contain scale-x-[-1] absolute -left-10 lg:-left-48 lg:-top-16 xl:-left-48 xl:-top-48 2xl:-top-52 2xl:-left-64 3xl:-left-[18rem] 4xl:-left-[24rem] 5xl:-left-[30rem] 6xl:-left-[36rem] sm:-left-16 2xl:max-w-[800px] 3xl:max-w-[1120px] xl:max-w-[630px] xl:max-h-[484px] lg:max-w-[700px] sm:min-w-[500px] sm:max-h-[310px] max-w-[360px] max-h-[196px]"
+            />
+        </div>
     </div>
 </section>
+
+<script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const animatePrinciples = () => {
+        const timeline = gsap.timeline({
+            scrollTrigger: {
+                trigger: "#principles",
+                start: "top 80%",
+                toggleActions: "play none none none"
+            }
+        });
+
+        timeline
+            .to(".principles-subtitle", {
+                opacity: 1,
+                x: 0,
+                duration: 0.8,
+                ease: "power3.out",
+            })
+            .to(
+                ".principles-heading",
+                {
+                    opacity: 1,
+                    x: 0,
+                    duration: 0.8,
+                    ease: "power3.out",
+                },
+                "-=0.6"
+            )
+            .to(
+                ".principles-paragraph",
+                {
+                    opacity: 1,
+                    x: 0,
+                    duration: 0.8,
+                    ease: "power3.out",
+                },
+                "-=0.6"
+            )
+            .to(
+                ".principles-item",
+                {
+                    opacity: 1,
+                    x: 0,
+                    duration: 0.8,
+                    ease: "power3.out",
+                    stagger: 0.2
+                },
+                "-=0.4"
+            )
+            .to(
+                ".principles-image",
+                {
+                    opacity: 1,
+                    x: 0,
+                    duration: 1.2,
+                    ease: "power2.out"
+                },
+                "-=1"
+            );
+    };
+
+    // Run animation when the page loads
+    window.addEventListener("load", animatePrinciples);
+</script>

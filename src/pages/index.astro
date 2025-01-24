@@ -1,28 +1,32 @@
 ---
 import Layout from "../layouts/main-layout.astro";
 import { Header } from "../features/navigation/ui/header";
-import { defaultLang } from "../i18n/ui";
-
-//sections
+import { Menu } from "../features/navigation/ui/menu";
 import HeroSection from "../features/hero/ui/hero-section.astro";
 import AboutSection from "../features/about/ui/about-section.astro";
 import PrinciplesSection from "../features/principles/ui/principles-section.astro";
 import ServicesSection from "../features/services/ui/services-section.astro";
 import ContactSection from "../features/contact/ui/contact-section.astro";
-import { Menu } from "../features/navigation/ui/menu";
+import { defaultLang, useTranslations } from "../i18n/utils";
 
-// Redirect to the default language path
-export const prerender = true;
+const t = useTranslations(defaultLang);
+
+// Redirect to default language
 Astro.response.status = 301;
 Astro.response.headers.set("Location", `/${defaultLang}`);
 ---
 
-<Layout>
-	<Header client:load />
-	<Menu client:load />
-	<HeroSection />
-	<AboutSection />
-	<PrinciplesSection />
-	<ServicesSection />
-	<ContactSection />
+<Layout
+  title={t("meta.title")}
+  description={t("meta.description")}
+>
+  <Menu client:load />
+  <div class="relative w-full overflow-x-hidden">
+    <Header client:load />
+    <HeroSection />
+    <AboutSection />
+    <PrinciplesSection />
+    <ServicesSection />
+    <ContactSection />
+  </div>
 </Layout>

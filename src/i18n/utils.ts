@@ -17,3 +17,6 @@ export function getStaticPaths() {
         params: { lang },
     }));
 }
+
+
+export { defaultLang };

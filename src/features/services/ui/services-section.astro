@@ -14,8 +14,11 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<section class="flex flex-col mt-16 relative 3xl:max-w-[1560px] 4xl:max-w-[1800px] m-auto" id="services">
-    <div class="w-full relative  mx-auto">
+<section
+    class="flex flex-col mt-16 relative 3xl:max-w-[1560px] 4xl:max-w-[1800px] m-auto"
+    id="services"
+>
+    <div class="w-full relative mx-auto">
         <div
             class="absolute left-0 top-0 h-[60%] lg:h-full w-full lg:w-[55%] overflow-hidden"
         >
@@ -33,42 +36,62 @@ const t = useTranslations(lang);
         </div>
         <div class="relative z-10">
             <div
-                class="w-[86%] lg:max-w-[80%] 3xl:max-w-[1560px] 4xl:max-w-[1800px]   mx-auto"
+                class="w-[86%] lg:max-w-[80%] 3xl:max-w-[1560px] 4xl:max-w-[1800px] mx-auto"
             >
                 <div class="flex flex-col lg:flex-row relative">
                     <div class="w-full lg:w-[55%]">
                         <div class="flex items-start flex-col py-16">
-                            <Subtitle
-                                text={t("services.subtitle")}
-                                className="text-white"
-                            />
-                            <Heading
-                                text={t("services.heading")}
-                                level={4}
-                                className="mt-3 text-white lg:w-[540px]"
-                            />
-                            <Paragraph
-                                className="mt-8 mb-8 text-white text-[18px] lg:hidden"
-                                text={t("services.paragraph")}
-                            />
-                            <a
-                                href="#contacts"
-                                class="font-montserrat font-[500] text-[18px] text-white lg:hidden"
-                                >{t("services.contact")}</a
+                            <div
+                                class="services-subtitle opacity-0 translate-x-[-100px]"
                             >
+                                <Subtitle
+                                    text={t("services.subtitle")}
+                                    className="text-white"
+                                />
+                            </div>
+                            <div
+                                class="services-heading opacity-0 translate-x-[-100px]"
+                            >
+                                <Heading
+                                    text={t("services.heading")}
+                                    level={4}
+                                    className="mt-3 text-white lg:w-[540px]"
+                                />
+                            </div>
+                            <div
+                                class="services-paragraph opacity-0 translate-x-[-100px]"
+                            >
+                                <Paragraph
+                                    className="mt-8 mb-8 text-white text-[18px] lg:hidden"
+                                    text={t("services.paragraph")}
+                                />
+                            </div>
+                            <div
+                                class="services-contact opacity-0 translate-x-[-100px]"
+                            >
+                                <a
+                                    href="#contacts"
+                                    class="font-montserrat font-[500] text-[18px] text-white lg:hidden"
+                                    >{t("services.contact")}</a
+                                >
+                            </div>
                             <div
                                 class="mt-6 flex flex-col items-stretch w-full gap-8 lg:hidden"
                             >
                                 {
-                                    serviceCardContent.map((card) => (
-                                        <ServiceCard {...card} />
+                                    serviceCardContent.map((card, index) => (
+                                        <div
+                                            class={`service-card-mobile opacity-0 translate-y-[50px] card-${index}`}
+                                        >
+                                            <ServiceCard {...card} />
+                                        </div>
                                     ))
                                 }
                             </div>
                         </div>
                     </div>
                     <div
-                        class="hidden lg:flex flex-col lg:w-[45%]  lg:pt-16 lg:min-h-[806px]"
+                        class="hidden lg:flex flex-col lg:w-[45%] lg:pt-16 lg:min-h-[806px]"
                     >
                         <div class="lg:pl-16 xl:pl-20">
                             <Paragraph
@@ -87,12 +110,111 @@ const t = useTranslations(lang);
         </div>
     </div>
     <div
-        class="hidden lg:block lg:max-w-[80%] 3xl:max-w-[1560px] 4xl:max-w-[1800px]   mx-auto relative -mt-[28rem]"
+        class="hidden lg:block lg:max-w-[80%] 3xl:max-w-[1560px] 4xl:max-w-[1800px] mx-auto relative -mt-[28rem]"
     >
         <div class="z-20">
             <div class="grid grid-cols-3 gap-8">
-                {serviceCardContent.map((card) => <ServiceCard {...card} />)}
+                {
+                    serviceCardContent.map((card, index) => (
+                        <div
+                            class={`service-card-desktop opacity-0 translate-y-[50px] card-${index}`}
+                        >
+                            <ServiceCard {...card} />
+                        </div>
+                    ))
+                }
             </div>
         </div>
     </div>
 </section>
+
+<script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const animateServices = () => {
+        // Header content animation
+        const headerTimeline = gsap.timeline({
+            scrollTrigger: {
+                trigger: "#services",
+                start: "top 80%",
+                toggleActions: "play none none none",
+            },
+        });
+
+        headerTimeline
+            .to(".services-subtitle", {
+                opacity: 1,
+                x: 0,
+                duration: 0.8,
+                ease: "power3.out",
+            })
+            .to(
+                ".services-heading",
+                {
+                    opacity: 1,
+                    x: 0,
+                    duration: 0.8,
+                    ease: "power3.out",
+                },
+                "-=0.6",
+            )
+            .to(
+                ".services-paragraph",
+                {
+                    opacity: 1,
+                    x: 0,
+                    duration: 0.8,
+                    ease: "power3.out",
+                },
+                "-=0.6",
+            )
+            .to(
+                ".services-contact",
+                {
+                    opacity: 1,
+                    x: 0,
+                    duration: 0.8,
+                    ease: "power3.out",
+                },
+                "-=0.6",
+            );
+
+        // Mobile cards animation
+        gsap.to(".service-card-mobile", {
+            scrollTrigger: {
+                trigger: ".service-card-mobile",
+                start: "top 80%",
+                toggleActions: "play none none none",
+            },
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power3.out",
+            stagger: 0.2,
+        });
+
+        // Desktop cards animation
+        gsap.to(".service-card-desktop", {
+            scrollTrigger: {
+                trigger: ".service-card-desktop",
+                start: "top 80%",
+                toggleActions: "play none none none",
+            },
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power3.out",
+            stagger: {
+                amount: 0.6,
+                from: "start",
+                grid: "auto",
+            },
+        });
+    };
+
+    // Run animation when the page loads
+    window.addEventListener("load", animateServices);
+</script>

@@ -1,19 +1,82 @@
 ---
 import "../styles/fonts.css";
 import "../styles/global.css";
+
+interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
+const canonicalUrl = `${Astro.url.origin}${Astro.url.pathname}`;
+const ogImageUrl = `${Astro.url.origin}/og-image.jpg`;
+const currentLang = Astro.url.pathname.startsWith('/en') ? 'en' : 'ru';
 ---
 
 <!doctype html>
-<html lang="ru">
+<html lang={currentLang}>
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="canonical" href={canonicalUrl} />
+		
+		<!-- Primary Meta Tags -->
+		<title>{title}</title>
+		<meta name="title" content={title} />
+		<meta name="description" content={description} />
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalUrl} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={ogImageUrl} />
+		<meta property="og:locale" content={currentLang === 'en' ? 'en_US' : 'ru_RU'} />
+		<meta property="og:locale:alternate" content={currentLang === 'en' ? 'ru_RU' : 'en_US'} />
+		
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={canonicalUrl} />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content={ogImageUrl} />
+		
+		<!-- Font loading -->
+		<link rel="stylesheet" href="/fonts/fonts.css" />
+		
+		<!-- Performance optimizations -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+		<link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+		
+		<!-- Additional Meta Tags -->
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<meta name="theme-color" content="#ffffff" />
+		<meta name="robots" content="index, follow" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta http-equiv="x-ua-compatible" content="IE=edge" />
+		
+		<!-- Alternate language versions -->
+		<link rel="alternate" hreflang="ru" href={`${Astro.url.origin}/ru${Astro.url.pathname.replace(/^\/(ru|en)/, '')}`} />
+		<link rel="alternate" hreflang="en" href={`${Astro.url.origin}/en${Astro.url.pathname.replace(/^\/(ru|en)/, '')}`} />
+		<link rel="alternate" hreflang="x-default" href={`${Astro.url.origin}/ru${Astro.url.pathname.replace(/^\/(ru|en)/, '')}`} />
 	</head>
-	<body class=" mx-auto">
+	<body class="mx-auto">
 		<slot />
+		<script>
+			// Register Service Worker
+			if ('serviceWorker' in navigator) {
+				window.addEventListener('load', () => {
+					navigator.serviceWorker.register('/sw.js').then(registration => {
+						console.log('SW registered:', registration);
+					}).catch(error => {
+						console.log('SW registration failed:', error);
+					});
+				});
+			}
+		</script>
 	</body>
 </html>
 

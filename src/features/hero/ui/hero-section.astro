@@ -14,25 +14,30 @@ const t = useTranslations(lang);
 
 <>
     <main
-        class="max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] 4xl:max-w-[1800px]   mx-auto flex items-start flex-col lg:flex-row mt-36 lg:mt-48"
+        class="max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] 4xl:max-w-[1800px] mx-auto flex items-start flex-col lg:flex-row mt-36 lg:mt-48"
     >
         <div class="flex flex-col items-start">
-            <Heading
-                text={t("hero.title.mob")}
-                orangeText="sungrain"
-                className="lg:hidden"
-                level={1}
+            <div class="hero-heading opacity-0 translate-x-[-100px]">
+                <Heading
+                    text={t("hero.title.mob")}
+                    orangeText="sungrain"
+                    className="lg:hidden"
+                    level={1}
+                />
+                <Heading
+                    text={t("hero.title.pc")}
+                    orangeText="sungrain"
+                    className="hidden lg:block"
+                    level={1}
+                />
+            </div>
+            <Paragraph
+                className="mt-4 hero-paragraph opacity-0 translate-x-[-100px]"
+                text={t("hero.paragraph")}
             />
-            <Heading
-                text={t("hero.title.pc")}
-                orangeText="sungrain"
-                className="hidden lg:block"
-                level={1}
-            />
-            <Paragraph className="mt-4" text={t("hero.paragraph")} />
             <Button
                 label={t("button.contact")}
-                className="mt-8"
+                className="mt-8 hero-button opacity-0"
                 buttonType="link"
                 href="#contacts"
             />
@@ -47,7 +52,53 @@ const t = useTranslations(lang);
         <Image
             src={wheat}
             alt="Wheat"
-            class="absolute -left-40 sm:-left-40 sm:max-w-[600px] lg:scale-x-[-1] lg:left-0 lg:right-84 max-h-[310px] max-w-[490px] sm:max-h-[410px]"
+            class="absolute -left-40 sm:-left-40 sm:max-w-[600px] lg:scale-x-[-1] lg:left-0 lg:right-84 max-h-[310px] max-w-[490px] sm:max-h-[410px] hero-wheat opacity-0 translate-x-[-100px]"
         />
     </div>
 </>
+
+<script>
+    import { gsap } from "gsap";
+
+    window.addEventListener("load", () => {
+        const timeline = gsap.timeline();
+
+        timeline
+            .to(".hero-heading", {
+                opacity: 1,
+                x: 0,
+                duration: 0.8,
+                ease: "power3.out",
+            })
+            .to(
+                ".hero-paragraph",
+                {
+                    opacity: 1,
+                    x: 0,
+                    duration: 0.8,
+                    ease: "power3.out",
+                },
+                "-=0.6",
+            )
+            .to(
+                ".hero-button",
+                {
+                    opacity: 1,
+                    x: 0,
+                    duration: 0.8,
+                    ease: "power3.out",
+                },
+                "-=0.6",
+            )
+            .to(
+                ".hero-wheat",
+                {
+                    opacity: 1,
+                    x: 0,
+                    duration: 0.8,
+                    ease: "power3.out",
+                },
+                "-=0.6",
+            );
+    });
+</script>
