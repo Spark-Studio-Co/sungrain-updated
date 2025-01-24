@@ -35,16 +35,19 @@ export const ui = {
     // About Cards
     "about.card1.title": "SOFT WHEAT",
     "about.card1.popup":
-      "Soft wheat is a versatile and sought-after grain crop that is widely used in various industries. Its grains have a round or oval shape with a pronounced groove and beard, and the consistency can be vitreous, semi-vitreous, or floury. The grain color varies from white and yellow to red. Soft wheat is ideal for flour production used in bread making, confectionery, and pasta production. Due to its high nutrient content, it is also used as a valuable component in animal feed, ensuring their healthy growth and development.",
+      "Soft wheat is a versatile and highly demanded grain crop, widely used in various industries. Its grains are round or oval with a pronounced groove and beard, and the texture can be vitreous, semi-vitreous, or floury. The grain color ranges from white and yellow to red. Soft wheat is perfect for producing flour used in bread making, confectionery, and pasta production. Due to its high nutrient content, it is also a valuable component in animal feed, promoting healthy growth and development.",
+
     "about.card2.title": "BARLEY",
     "about.card2.popup":
-      "Barley is an important grain crop widely used in agriculture. Its grains have high nutritional value and are used in animal feed production, as well as in the food and brewing industries. Barley is a valuable source of carbohydrates, vitamins, and minerals that contribute to livestock health and product quality improvement. Additionally, barley is used for flour, cereals, and other products.",
+      "Barley is an essential grain crop widely used in agriculture. Its grains are highly nutritious and are utilized in animal feed production, as well as in the food and brewing industries. Barley is a rich source of carbohydrates, vitamins, and minerals, contributing to livestock health and improving product quality. Additionally, barley is used to produce flour, cereals, and other food products.",
+
     "about.card3.title": "RED MILLET",
     "about.card3.popup":
-      "Red millet is a grain crop known for its drought resistance and unpretentiousness to growing conditions. It has high nutritional value and is used as livestock feed, as well as in food production. Red millet grains contain many carbohydrates, proteins, and vitamins, making it beneficial for both animals and humans. In the food industry, red millet is used for cereals, bakery products, and other products.",
-    "about.card4.title": "YELLOW MILLET",
+      "Red millet is a grain crop known for its drought resistance and resilience to growing conditions. It has high nutritional value and is used as animal feed and in food production. Red millet grains are rich in carbohydrates, proteins, and vitamins, making them beneficial for both animals and humans. In the food industry, red millet is used for producing cereals, bakery goods, and other products.",
+
+    "about.card4.title": "SUNFLOWER SEEDS",
     "about.card4.popup":
-      "Yellow millet is a versatile grain crop that is used in various industries, including food, feed, and other products. Its grains are small and round, with a soft, fluffy texture. Yellow millet is known for its high nutritional value and is used in livestock feed, as well as in food production. The grains contain carbohydrates, proteins, and vitamins, making them a valuable source of nutrients for both humans and animals.",
+      "Sunflower seeds are a valuable product used in the production of oil for both food and feed industries. They are rich in fats, vitamins, and minerals, making them beneficial for humans and animals alike. Sunflower seeds have a hard shell and a nutritious kernel, which is processed to produce oil and other derived products.",
 
     //Principles Section
     "principles.subtitle": "10 years of experience on the Market",
