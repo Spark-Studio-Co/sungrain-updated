@@ -7,6 +7,8 @@ import AboutSection from "../../features/about/ui/about-section.astro";
 import PrinciplesSection from "../../features/principles/ui/principles-section.astro";
 import ServicesSection from "../../features/services/ui/services-section.astro";
 import ContactSection from "../../features/contact/ui/contact-section.astro";
+import PasrtnersSection from "../../features/partners/ui/pasrtners-section.astro";
+
 import {
   getStaticPaths,
   getLangFromUrl,
@@ -30,6 +32,7 @@ const t = useTranslations(lang);
     <AboutSection />
     <PrinciplesSection />
     <ServicesSection />
+     <PasrtnersSection/>
     <ContactSection />
   </div>
 </Layout>

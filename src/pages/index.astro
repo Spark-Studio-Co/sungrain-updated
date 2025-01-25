@@ -7,8 +7,9 @@ import AboutSection from "../features/about/ui/about-section.astro";
 import PrinciplesSection from "../features/principles/ui/principles-section.astro";
 import ServicesSection from "../features/services/ui/services-section.astro";
 import ContactSection from "../features/contact/ui/contact-section.astro";
-import { defaultLang, useTranslations } from "../i18n/utils";
+import PasrtnersSection from "../features/partners/ui/pasrtners-section.astro";
 
+import { defaultLang, useTranslations } from "../i18n/utils";
 const t = useTranslations(defaultLang);
 
 // Redirect to default language
@@ -27,6 +28,7 @@ Astro.response.headers.set("Location", `/${defaultLang}`);
     <AboutSection />
     <PrinciplesSection />
     <ServicesSection />
+    <PasrtnersSection/>
     <ContactSection />
   </div>
 </Layout>

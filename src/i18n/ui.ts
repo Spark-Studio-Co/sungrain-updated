@@ -7,6 +7,12 @@ export const defaultLang = "ru";
 
 export const ui = {
   en: {
+    "partners.heading": "Our",
+    "partners.orange.text": "partners",
+
+    "contact.copyright":
+      'Copyright © "SAMI GROUP" LLP, 2025. All rights reserved.',
+
     // Meta
     "meta.title": "SUN GRAIN - Supply of grain and oilseeds",
     "meta.description":
@@ -98,6 +104,11 @@ export const ui = {
     "contact.badge": "SELECTED QUALITY \nGRAIN",
   },
   ru: {
+    "partners.heading": "Наши",
+    "partners.orange.text": "партнеры",
+    "contact.copyright":
+      'Авторские права © ТОО "SAMI GROUP", 2025. Все права защищены.',
+
     // Meta
     "meta.title": "SUN GRAIN - Поставка зерновых и масличных культур",
     "meta.description":
