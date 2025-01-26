@@ -8,7 +8,6 @@ import { getLangFromUrl, useTranslations } from "../../../i18n/utils";
 
 import contacts01 from "../../../../public/images/contacts01.webp";
 import BackgroundLeafIcon from "../../../shared/icons/bg-leaf-icon";
-import type { onumber } from "astro:schema";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -96,7 +95,9 @@ const t = useTranslations(lang);
   <SuccessPopup client:only />
 </section>
 
-<div class="text-center py-8 text-gray-600 font-montserrat">
+<div
+  class="text-center py-8 text-gray-600 font-montserrat max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] 4xl:max-w-[1800px] mx-auto"
+>
   {t("contact.copyright")}
 </div>
 

@@ -2,14 +2,14 @@
 import type { ComponentType } from "react";
 import { getLangFromUrl, useTranslations } from "../../../i18n/utils";
 import type {
-    ServiceCardTitle,
-    ServiceCardText,
+  ServiceCardTitle,
+  ServiceCardText,
 } from "../model/service-card-content";
 
 interface Props {
-    Icon: ComponentType<{ size?: number; color?: string; className?: string }>;
-    title: ServiceCardTitle;
-    text: ServiceCardText;
+  Icon: ComponentType<{ size?: number; color?: string; className?: string }>;
+  title: ServiceCardTitle;
+  text: ServiceCardText;
 }
 
 const { Icon, title, text } = Astro.props;
@@ -18,21 +18,23 @@ const t = useTranslations(lang);
 ---
 
 <div
-    class="flex flex-col w-full bg-white 3xl:max-w-[445px] 4xl:max-w-[520px] xl:max-h-[304.96px] h-[19rem] sm:h-[21.5rem] rounded-[16px] py-5 px-6 lg:px-4 xl:px-5"
-    style={{ boxShadow: "0px 16px 32px 0px #0000000F" }}
+  class="flex flex-col w-full bg-white 3xl:max-w-[445px] 4xl:max-w-[520px] xl:h-[19rem] lg:h-[18rem] h-[20.5rem] sm:h-[21.5rem] rounded-[16px] py-5 px-6 lg:px-4 xl:px-5"
+  style={{ boxShadow: "0px 16px 32px 0px #0000000F" }}
 >
-    <div class="flex flex-row items-center w-full gap-4 lg:gap-2 xl:gap-4">
-        <div
-            class="w-20 h-20 bg-[#F3881033] rounded-full flex items-center justify-center flex-shrink-0"
-        >
-            <Icon size={44} color="#F38810" className="text-primary" />
-        </div>
-        <span
-            class="font-gotham font-[700] lg:text-[1rem] xl:text-[1.2rem] text-[1.4rem] sm:text-[1.6rem] text-primary"
-            >{t(title)}</span
-        >
+  <div class="flex flex-row items-center w-full gap-4 lg:gap-3 xl:gap-4">
+    <div
+      class="w-20 h-20 bg-[#F3881033] rounded-full flex items-center justify-center flex-shrink-0"
+    >
+      <Icon size={44} color="#F38810" className="text-primary" />
     </div>
-    <p class="mt-6 text-[#223137] text-[18px] lg:text-[16px]  font-montserrat font-[400]">
-        {t(text)}
-    </p>
+    <span
+      class="font-gotham font-[700] lg:text-[0.9rem] xl:text-[1.2rem] text-[1.4rem] sm:text-[1.6rem] text-primary"
+      >{t(title)}</span
+    >
+  </div>
+  <p
+    class="mt-6 text-[#223137] text-[17px] lg:text-[14px] xl:text-[16px] font-montserrat font-[400]"
+  >
+    {t(text)}
+  </p>
 </div>
