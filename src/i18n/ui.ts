@@ -11,7 +11,7 @@ export const ui = {
     "partners.orange.text": "partners",
 
     "contact.copyright":
-      'Copyright © "SAMI GROUP" LLP, 2025. All rights reserved.',
+      'Copyright © "SUN GRAIN" LLP, 2025. All rights reserved.',
 
     // Meta
     "meta.title": "SUN GRAIN - Supply of grain and oilseeds",
@@ -46,7 +46,7 @@ export const ui = {
     "about.card1.popup":
       "Soft wheat is a versatile and highly demanded grain crop, widely used in various industries. Its grains are round or oval with a pronounced groove and beard, and the texture can be vitreous, semi-vitreous, or floury. The grain color ranges from white and yellow to red. Soft wheat is perfect for producing flour used in bread making, confectionery, and pasta production. Due to its high nutrient content, it is also a valuable component in animal feed, promoting healthy growth and development.",
 
-    "about.card2.title": "BARLEY",
+    "about.card2.title": "FEED BARLEY",
     "about.card2.popup":
       "Barley is an essential grain crop widely used in agriculture. Its grains are highly nutritious and are utilized in animal feed production, as well as in the food and brewing industries. Barley is a rich source of carbohydrates, vitamins, and minerals, contributing to livestock health and improving product quality. Additionally, barley is used to produce flour, cereals, and other food products.",
 
@@ -107,7 +107,7 @@ export const ui = {
     "partners.heading": "Наши",
     "partners.orange.text": "партнеры",
     "contact.copyright":
-      'Авторские права © ТОО "SAMI GROUP", 2025. Все права защищены.',
+      'Авторские права © ТОО "SUN GRAIN" , 2025. Все права защищены.',
 
     // Meta
     "meta.title": "SUN GRAIN - Поставка зерновых и масличных культур",
@@ -142,7 +142,7 @@ export const ui = {
     "about.card1.title": "ПШЕНИЦА МЯГКАЯ",
     "about.card1.popup":
       "Пшеница мягкая - это универсальная и востребованная зерновая культура, широко используемая в различных отраслях промышленности. Ее зерна имеют округлую или овальную форму с выраженной бороздой и бородой, а консистенция может быть стекловидной, полустекловидной или мучнистой. Цвет зерна варьируется от белого и желтого до красного. Пшеница мягкая идеальна для производства муки, используемой в хлебопечении, кондитерской промышленности и производстве макаронных изделий. Благодаря высокому содержанию питательных веществ, она также используется в качестве ценного компонента в кормах для животных, обеспечивая их здоровый рост и развитие.",
-    "about.card2.title": "ЯЧМЕНЬ",
+    "about.card2.title": "ЯЧМЕНЬ КОРМОВОЙ",
     "about.card2.popup":
       "Ячмень — важная зерновая культура, широко используемая в сельском хозяйстве. Его зерна обладают высокой питательной ценностью и применяются в производстве кормов для животных, а также в пищевой и пивоваренной промышленности. Ячмень является ценным источником углеводов, витаминов и минералов, способствующих здоровью скота и улучшению качества продукции. Кроме того, ячмень используется для производства муки, круп и других продуктов.",
     "about.card3.title": "ПРОСО КРАСНОЕ",

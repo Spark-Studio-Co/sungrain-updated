@@ -22,100 +22,124 @@ const logos = await Astro.glob("../../../../public/images/logos/*").then(
 );
 ---
 
-<section class="flex items-start flex-col lg:flex-row lg:mt-48 xl:mt-64">
-  <div
-    class="flex flex-col items-start max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] 4xl:max-w-[1800px] mx-auto"
-  >
-    <div class="hero-heading opacity-0 translate-x-[-100px]">
-      <Heading
-        text={t("partners.heading")}
-        orangeText={t("partners.orange.text")}
-        level={5}
-      />
-    </div>
+<section
+  class="flex flex-col items-start max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] 4xl:max-w-[1800px] mx-auto lg:mt-48 xl:mt-64"
+>
+  <div class="hero-heading opacity-0 translate-x-[-100px]">
+    <Heading
+      text={t("partners.heading")}
+      orangeText={t("partners.orange.text")}
+      level={5}
+    />
+  </div>
 
-    <div class="w-full overflow-hidden mt-12">
-      <div class="marquee-track flex">
-        <div class="marquee-content flex">
-          {
-            [...logos, ...logos].map((logo, index) => (
-              <a
-                href={logo.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="transition-opacity hover:opacity-75"
-              >
-                <div class="mx-8 ">
-                  <Image
-                    src={logo.src}
-                    alt={`Partner logo ${index + 1}`}
-                    class="h-20 w-auto"
-                  />
-                </div>
-              </a>
-            ))
-          }
-        </div>
-        <div class="marquee-content flex">
-          {
-            [...logos, ...logos].map((logo, index) => (
+  <div class="lg:hidden mt-12">
+    <div class="marquee-track flex">
+      <div class="marquee-content flex">
+        {
+          [...logos, ...logos].map((logo, index) => (
+            <a
+              href={logo.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="transition-opacity hover:opacity-75"
+            >
               <div class="mx-8">
-                <a
-                  href={logo.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="transition-opacity hover:opacity-75"
-                >
-                  <Image
-                    src={logo.src}
-                    alt={`Partner logo ${index + 1}`}
-                    class="h-20 w-auto object-contain"
-                  />
-                </a>
+                <Image
+                  src={logo.src}
+                  alt={`Partner logo ${index + 1}`}
+                  class="h-20 w-auto object-contain"
+                />
               </div>
-            ))
-          }
-        </div>
+            </a>
+          ))
+        }
+      </div>
+      <div class="marquee-content flex">
+        {/* Second copy for continuous scroll */}
+        {
+          [...logos, ...logos].map((logo, index) => (
+            <a
+              href={logo.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="transition-opacity hover:opacity-75"
+            >
+              <div class="mx-8">
+                <Image
+                  src={logo.src}
+                  alt={`Partner logo ${index + 1}`}
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+            </a>
+          ))
+        }
       </div>
     </div>
+  </div>
 
-    <style>
-      .marquee-track {
-        width: 100%;
-        position: relative;
-        display: flex;
-      }
-
-      .marquee-content {
-        flex-shrink: 0;
-        display: flex;
-        white-space: nowrap;
-        animation: scroll 10s linear infinite;
-      }
-
-      @keyframes scroll {
-        from {
-          transform: translateX(0);
-        }
-        to {
-          transform: translateX(-100%);
-        }
-      }
-    </style>
-
-    <script>
-      import { gsap } from "gsap";
-
-      window.addEventListener("load", () => {
-        const timeline = gsap.timeline();
-
-        timeline.to(".hero-heading", {
-          opacity: 1,
-          x: 0,
-          duration: 0.8,
-          ease: "power3.out",
-        });
-      });
-    </script>
+  <div class="hidden lg:flex justify-between items-center gap-8 mt-12">
+    {
+      logos.map((logo) => (
+        <a
+          href={logo.website}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center bg-gray-100 lg:w-48 lg:h-48 xl:w-64 xl:h-64 rounded-lg justify-center transition-opacity hover:opacity-75"
+        >
+          <Image
+            src={logo.src}
+            alt="Partner logo"
+            class="h-20 w-auto object-contain"
+          />
+        </a>
+      ))
+    }
   </div>
 </section>
+
+<style>
+  .marquee-track {
+    width: 100%;
+    position: relative;
+    display: flex;
+  }
+
+  .marquee-content {
+    flex-shrink: 0;
+    display: flex;
+    white-space: nowrap;
+    animation: scroll 10s linear infinite;
+  }
+
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .marquee-content {
+      animation: none;
+    }
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+
+  window.addEventListener("load", () => {
+    const timeline = gsap.timeline();
+
+    timeline.to(".hero-heading", {
+      opacity: 1,
+      x: 0,
+      duration: 0.8,
+      ease: "power3.out",
+    });
+  });
+</script>

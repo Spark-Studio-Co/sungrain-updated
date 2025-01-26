@@ -12,85 +12,90 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-
 <main
-        class="max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] 4xl:max-w-[1800px] mx-auto flex items-start flex-col lg:flex-row mt-36 lg:mt-48"
-    >
-        <div class="flex flex-col items-start">
-            <div class="hero-heading opacity-0 translate-x-[-100px]">
-                <Heading
-                    text={t("hero.title")}
-                    orangeText='"sun grain"'
-                    level={1}
-                />
-            </div>
-            <Paragraph
-                className="mt-4 hero-paragraph opacity-0 translate-x-[-100px] md:w-[600px] lg:w-[700px] xl:w-[800px]"
-                text={t("hero.paragraph")}
-            />
-            <Button
-                label={t("button.contact")}
-                className="mt-8 hero-button opacity-0"
-                buttonType="link"
-                href="#contacts"
-            />
-        </div>
-        <!-- <Image
-            src={wheat2}
-            alt="Wheat"
-            class="absolute lg:flex hidden lg:right-0 lg:max-w-[340px] 3xl:hidden lg:top-64 lg:max-h-[400px] xl:top-72 xl:max-w-[480px] 2xl:top-[15rem] 2xl:max-w-[700px] 2xl:max-h-[500px] 3xl:max-w-[800px] 3xl:max-h-[600px]"
-        /> -->
-    </main>
-    <div class="w-full min-h-[240px] sm:min-h-[340px] relative lg:hidden">
-        <Image
-            src={wheat}
-            alt="Wheat"
-            class="absolute -left-40 sm:-left-40 sm:max-w-[600px] lg:scale-x-[-1] lg:left-0 lg:right-84 max-h-[310px] max-w-[490px] sm:max-h-[410px] hero-wheat opacity-0 translate-x-[-100px]"
-        />
+  class="max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] 4xl:max-w-[1800px] mx-auto flex items-start flex-col lg:flex-row mt-36 lg:mt-48"
+>
+  <div class="flex flex-col items-start">
+    <div class="hero-heading opacity-0 translate-x-[-100px]">
+      <Heading text={t("hero.title")} orangeText='"sun grain"' level={1} />
     </div>
+    <Paragraph
+      className="mt-4 hero-paragraph opacity-0 translate-x-[-100px] md:w-[600px] lg:w-[700px] xl:w-[800px]"
+      text={t("hero.paragraph")}
+    />
+    <Button
+      label={t("button.contact")}
+      className="mt-8 hero-button opacity-0"
+      buttonType="link"
+      href="#contacts"
+    />
+  </div>
+  <Image
+    src={wheat2}
+    alt="Wheat"
+    class="absolute lg:flex hidden lg:right-0 lg:max-w-[340px] 3xl:hidden lg:top-64 lg:max-h-[400px] xl:top-72 xl:max-w-[480px] 2xl:top-[15rem] 2xl:max-w-[700px] 2xl:max-h-[500px] 3xl:max-w-[800px] 3xl:max-h-[600px] hero-wheat-right opacity-0 translate-x-[100px]"
+  />
+</main>
+<div class="w-full min-h-[240px] sm:min-h-[340px] relative lg:hidden">
+  <Image
+    src={wheat}
+    alt="Wheat"
+    class="absolute -left-40 sm:-left-40 sm:max-w-[600px] lg:scale-x-[-1] lg:left-0 lg:right-84 max-h-[310px] max-w-[490px] sm:max-h-[410px] hero-wheat opacity-0 translate-x-[-100px]"
+  />
+</div>
 
 <script>
-    import { gsap } from "gsap";
+  import { gsap } from "gsap";
 
-    window.addEventListener("load", () => {
-        const timeline = gsap.timeline();
+  window.addEventListener("load", () => {
+    const timeline = gsap.timeline();
 
-        timeline
-            .to(".hero-heading", {
-                opacity: 1,
-                x: 0,
-                duration: 0.8,
-                ease: "power3.out",
-            })
-            .to(
-                ".hero-paragraph",
-                {
-                    opacity: 1,
-                    x: 0,
-                    duration: 0.8,
-                    ease: "power3.out",
-                },
-                "-=0.6",
-            )
-            .to(
-                ".hero-button",
-                {
-                    opacity: 1,
-                    x: 0,
-                    duration: 0.8,
-                    ease: "power3.out",
-                },
-                "-=0.6",
-            )
-            .to(
-                ".hero-wheat",
-                {
-                    opacity: 1,
-                    x: 0,
-                    duration: 0.8,
-                    ease: "power3.out",
-                },
-                "-=0.6",
-            );
-    });
+    timeline
+      .to(".hero-heading", {
+        opacity: 1,
+        x: 0,
+        duration: 0.8,
+        ease: "power3.out",
+      })
+      .to(
+        ".hero-paragraph",
+        {
+          opacity: 1,
+          x: 0,
+          duration: 0.8,
+          ease: "power3.out",
+        },
+        "-=0.6"
+      )
+      .to(
+        ".hero-button",
+        {
+          opacity: 1,
+          x: 0,
+          duration: 0.8,
+          ease: "power3.out",
+        },
+        "-=0.6"
+      )
+      .to(
+        ".hero-wheat",
+        {
+          opacity: 1,
+          x: 0,
+          duration: 0.8,
+          ease: "power3.out",
+        },
+        "-=0.6"
+      )
+      .to(
+        ".hero-wheat-right",
+        {
+          opacity: 1,
+          x: 0,
+          duration: 0.8,
+          ease: "power3.out",
+        },
+        "-=0.6"
+      );
+  });
 </script>

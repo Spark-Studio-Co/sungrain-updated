@@ -12,98 +12,95 @@ const t = useTranslations(lang);
 ---
 
 <section
-    class="max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] 4xl:max-w-[1800px] mx-auto flex flex-col mt-16 lg:mt-40"
-    id="about"
+  class="max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] 4xl:max-w-[1800px] mx-auto flex flex-col mt-16 lg:mt-40"
+  id="about"
 >
-    <!-- <div class="about-subtitle opacity-0 translate-x-[-100px]">
+  <!-- <div class="about-subtitle opacity-0 translate-x-[-100px]">
         <Subtitle text={t("about.subtitle")} className="text-[#D25127]" />
     </div> -->
-    <div class="about-heading opacity-0 translate-x-[-100px]">
-        <Heading
-            text={t("about.title")}
-            orangeText="sun grain"
-            level={2}
-            className="mt-3"
-        />
-    </div>
-    <div class="about-paragraph opacity-0 translate-x-[-100px]">
-        <Paragraph className="mt-8 mb-16 md:w-[700px] lg:w-[800px] xl:w-[900px]" text={t("about.paragraph")} />
-    </div>
-    <div
-        class="flex flex-col lg:flex-row justify-center items-center lg:mr-auto gap-8 lg:gap-5"
-    >
-        {
-            aboutCardsContent.map(({ image, title, popupText }, index) => (
-                <div
-                    class={`about-card opacity-0 translate-y-[50px] card-${index}`}
-                >
-                    <AboutCard
-                        image={image}
-                        title={t(title)}
-                        popupText={t(popupText)}
-                    />
-                </div>
-            ))
-        }
-    </div>
-    <AboutPopup client:only />
+  <div class="about-heading opacity-0 translate-x-[-100px]">
+    <Heading
+      text={t("about.title")}
+      orangeText="sun grain"
+      level={2}
+      className="mt-3"
+    />
+  </div>
+  <div class="about-paragraph opacity-0 translate-x-[-100px]">
+    <Paragraph
+      className="mt-8 mb-16 md:w-[700px] lg:w-[800px] xl:w-[900px]"
+      text={t("about.paragraph")}
+    />
+  </div>
+  <div
+    class="flex flex-col lg:flex-row lg:justify-between justify-center w-full items-center lg:mr-auto gap-8 lg:gap-5"
+  >
+    {
+      aboutCardsContent.map(({ image, title, popupText }, index) => (
+        <div class={`about-card opacity-0 translate-y-[50px] card-${index}`}>
+          <AboutCard image={image} title={t(title)} popupText={t(popupText)} />
+        </div>
+      ))
+    }
+  </div>
+  <AboutPopup client:only />
 </section>
 
 <script>
-    import { gsap } from "gsap";
-    import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-    gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger);
 
-    const animateSection = () => {
-        const timeline = gsap.timeline({
-            scrollTrigger: {
-                trigger: "#about",
-                start: "top 80%",
-                toggleActions: "play none none none",
-            },
-        });
+  const animateSection = () => {
+    const timeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#about",
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
+    });
 
-        timeline
-            .to(".about-subtitle", {
-                opacity: 1,
-                x: 0,
-                duration: 0.8,
-                ease: "power3.out",
-            })
-            .to(
-                ".about-heading",
-                {
-                    opacity: 1,
-                    x: 0,
-                    duration: 0.8,
-                    ease: "power3.out",
-                },
-                "-=0.6",
-            )
-            .to(
-                ".about-paragraph",
-                {
-                    opacity: 1,
-                    x: 0,
-                    duration: 0.8,
-                    ease: "power3.out",
-                },
-                "-=0.6",
-            )
-            .to(
-                ".about-card",
-                {
-                    opacity: 1,
-                    y: 0,
-                    duration: 0.8,
-                    ease: "power3.out",
-                    stagger: 0.2,
-                },
-                "-=0.4",
-            );
-    };
+    timeline
+      .to(".about-subtitle", {
+        opacity: 1,
+        x: 0,
+        duration: 0.8,
+        ease: "power3.out",
+      })
+      .to(
+        ".about-heading",
+        {
+          opacity: 1,
+          x: 0,
+          duration: 0.8,
+          ease: "power3.out",
+        },
+        "-=0.6"
+      )
+      .to(
+        ".about-paragraph",
+        {
+          opacity: 1,
+          x: 0,
+          duration: 0.8,
+          ease: "power3.out",
+        },
+        "-=0.6"
+      )
+      .to(
+        ".about-card",
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power3.out",
+          stagger: 0.2,
+        },
+        "-=0.4"
+      );
+  };
 
-    // Run animation when the page loads
-    window.addEventListener("load", animateSection);
+  // Run animation when the page loads
+  window.addEventListener("load", animateSection);
 </script>

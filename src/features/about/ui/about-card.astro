@@ -5,9 +5,9 @@ import type { ImageMetadata } from "astro";
 import { getLangFromUrl, useTranslations } from "../../../i18n/utils";
 
 interface Props {
-    image: ImageMetadata;
-    title: string;
-    popupText: string;
+  image: ImageMetadata;
+  title: string;
+  popupText: string;
 }
 
 const { image, title, popupText } = Astro.props;
@@ -16,102 +16,102 @@ const t = useTranslations(lang);
 ---
 
 <div
-    class="flex flex-col items-start w-full h-[476px] sm:h-[576px] rounded-[20px] lg:w-min-[195px] lg:h-[310px] xl:h-[400px] 3xl:w-[333px] bg-white"
-    style={{ boxShadow: "0px 4px 20px 0px #0000000D" }}
+  class="flex flex-col items-start w-full h-[476px] sm:h-[576px] rounded-[20px] lg:w-min-[195px] lg:h-[310px] xl:h-[437px] 2xl:h-[500px] 3xl:w-[333px] bg-white"
+  style={{ boxShadow: "0px 4px 20px 0px #0000000D" }}
 >
+  <div
+    class="relative w-full aspect-[16/20] lg:aspect-[16/27] 2xl:aspect-[16/30] overflow-hidden"
+  >
     <Image
-        src={image}
-        alt={title}
-        class="w-full h-[200px] sm:h-[300px] lg:h-[130px] xl:h-[35%] object-cover rounded-t-[20px]"
-        width={800}
-        height={600}
-        loading="lazy"
-        decoding="async"
-        format="webp"
-        quality={80}
+      src={image}
+      alt={title}
+      class="w-full h-full object-cover rounded-t-[20px] absolute inset-0"
+      loading="lazy"
+      decoding="async"
+      format="webp"
+      quality={80}
     />
-    <div class="flex flex-col justify-between h-full w-full px-4 pt-8 lg:pt-4">
-        <div>
-            <span
-                class="font-unisans font-[900] text-[28px] lg:text-[18px] xl:text-[28px] text-primary"
-                >{title}</span
-            >
-            <p
-                class="mt-4 font-gotham font-[400] text-[14px] lg:text-[12px] leading-[20px] lg:leading-[14px] lg:mt-2 text-secondary"
-                data-text={popupText}
-            >
-                {popupText}
-            </p>
-        </div>
-        <div class="mb-4">
-            <Button
-                variant="outline"
-                className="mt-4"
-                label={t("button.more")}
-                data-title={title}
-                data-description={popupText}
-            />
-        </div>
+  </div>
+  <div class="flex flex-col justify-between h-full w-full px-4 pt-8 lg:pt-4">
+    <div>
+      <span
+        class="font-unisans font-[900] text-[28px] lg:text-[18px] xl:text-[28px] text-primary"
+        >{title}</span
+      >
+      <p
+        class="mt-4 font-gotham font-[400] text-[14px] lg:text-[12px] leading-[20px] lg:leading-[14px] lg:mt-2 text-secondary"
+        data-text={popupText}
+      >
+        {popupText}
+      </p>
     </div>
+    <div class="mb-4">
+      <Button
+        variant="outline"
+        className="mt-4"
+        label={t("button.more")}
+        data-title={title}
+        data-description={popupText}
+      />
+    </div>
+  </div>
 </div>
 
 <script>
-    import type { ui, defaultLang } from "../../../i18n/ui";
+  import type { ui, defaultLang } from "../../../i18n/ui";
 
-    const buttons = document.querySelectorAll("[data-title]");
+  const buttons = document.querySelectorAll("[data-title]");
 
-    buttons.forEach((button) => {
-        button.addEventListener("click", async () => {
-            const title = button.getAttribute("data-title");
-            const description = button.getAttribute("data-description");
+  buttons.forEach((button) => {
+    button.addEventListener("click", async () => {
+      const title = button.getAttribute("data-title");
+      const description = button.getAttribute("data-description");
 
-            if (title && description) {
-                const { useAboutPopupStore } = await import(
-                    "../model/popup-store"
-                );
+      if (title && description) {
+        const { useAboutPopupStore } = await import("../model/popup-store");
 
-                const store = useAboutPopupStore.getState();
-                store.openPopup({
-                    title,
-                    description,
-                });
-            }
+        const store = useAboutPopupStore.getState();
+        store.openPopup({
+          title,
+          description,
         });
+      }
     });
+  });
 
-    const textElements = document.querySelectorAll("[data-text]");
-    let resizeTimeout: number;
+  const textElements = document.querySelectorAll("[data-text]");
+  let resizeTimeout: number;
 
-    function updateTextLength() {
-        const width = window.innerWidth;
-        let maxLength = 140; // Default for mobile
+  function updateTextLength() {
+    const width = window.innerWidth;
+    let maxLength = 140; // Default for mobile
 
-        if (width >= 1536) {
-            maxLength = 160;
-        } else if (width >= 1280) {
-            maxLength = 100;
-        } else if (width >= 1170) {
-            maxLength = 50;
-        } else if (width >= 1024) {
-            maxLength = 40;
-        } else if (width >= 640) {
-            maxLength = 260;
-        }
-
-        textElements.forEach((element) => {
-            const fullText = element.getAttribute("data-text") || "";
-            element.textContent =
-                fullText.slice(0, maxLength) +
-                (fullText.length > maxLength ? "..." : "");
-        });
+    if (width >= 1536) {
+      maxLength = 160;
+    } else if (width >= 1280) {
+      maxLength = 100;
+    } else if (width >= 1170) {
+      maxLength = 50;
+    } else if (width >= 1024) {
+      maxLength = 40;
+    } else if (width >= 640) {
+      maxLength = 260;
     }
 
-    // Initial update
-    updateTextLength();
-
-    // Debounced resize handler
-    window.addEventListener("resize", () => {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(updateTextLength, 150);
+    textElements.forEach((element) => {
+      const fullText = element.getAttribute("data-text") || "";
+      element.textContent =
+        fullText.slice(0, maxLength) +
+        (fullText.length > maxLength ? "..." : "");
     });
+  }
+
+  // Initial update
+  updateTextLength();
+
+  // Debounced resize handler
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(updateTextLength, 150);
+  });
 </script>
