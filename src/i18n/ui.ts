@@ -27,7 +27,7 @@ export const ui = {
 
     "hero.title": "Quality grain, \nreliable approach, confidence \nwith LLP",
     "hero.paragraph":
-      '"SUN GRAIN" LLP is a reliable supplier of high-quality grains and oilseeds. We value the trust of our partners, ensuring stable supplies and an individual approach to each client. Our experience and professionalism help us develop successfully. "SUN GRAIN" LLP is your confident solution in the world of agribusiness.',
+      '"SUN GRAIN" LLP is a reliable supplier of high-quality grains and oilseeds. We value the trust of our partners, ensuring stable supplies and an individual approach to each client. "SUN GRAIN" LLP is your confident solution in the world of agribusiness.',
 
     // Buttons
     "button.more": "More",
@@ -107,7 +107,7 @@ export const ui = {
     "partners.heading": "Наши",
     "partners.orange.text": "партнеры",
     "contact.copyright":
-      'Авторские права © ТОО "SUN GRAIN" , 2025. Все права защищены.',
+      'Авторские права © ТОО "SUN GRAIN", 2025. Все права защищены.',
 
     // Meta
     "meta.title": "SUN GRAIN - Поставка зерновых и масличных культур",
@@ -124,7 +124,7 @@ export const ui = {
     // hero
     "hero.title": "Качественное зерно, \nнадежный подход, уверенность \nс ТОО",
     "hero.paragraph":
-      "ТОО «SUN GRAIN» — надежный поставщик зерновых и масличных культур высокого качества. Мы ценим доверие наших партнеров, обеспечивая стабильные поставки и индивидуальный подход к каждому клиенту. Наш опыт и профессионализм помогают нам успешно развивать. ТОО «SUN GRAIN» — Ваше уверенное решение в мире агробизнеса.",
+      "ТОО «SUN GRAIN» — надежный поставщик зерновых и масличных культур высокого качества. Мы ценим доверие наших партнеров, обеспечивая стабильные поставки и индивидуальный подход к каждому клиенту. ТОО «SUN GRAIN» — Ваше уверенное решение в мире агробизнеса.",
 
     // Buttons
     "button.more": "Подробнее",
