@@ -18,7 +18,7 @@ const logos = await Astro.glob("../../../../public/images/logos/*").then(
     files.map((file, index) => ({
       src: file.default,
       website: websites[index],
-    }))
+    })),
 );
 ---
 
@@ -79,7 +79,9 @@ const logos = await Astro.glob("../../../../public/images/logos/*").then(
     </div>
   </div>
 
-  <div class="hidden lg:flex justify-between items-center gap-8 mt-12">
+  <div
+    class="hidden lg:flex justify-between self-center items-center gap-8 mt-12"
+  >
     {
       logos.map((logo) => (
         <a
