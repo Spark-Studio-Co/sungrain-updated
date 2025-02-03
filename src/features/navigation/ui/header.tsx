@@ -44,15 +44,6 @@ export const Header = () => {
           ))}
         </nav>
         <a
-          href="https://www.instagram.com/sungrain.kz/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Instagram"
-          className="ml-6"
-        >
-          <InstagramIcon />
-        </a>
-        <a
           href="https://wa.me/+77768261717"
           target="_blank"
           rel="noopener noreferrer"

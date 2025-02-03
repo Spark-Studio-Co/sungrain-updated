@@ -31,7 +31,7 @@ export const LanguageSwitcher = ({ className }: LanguageSwitcherProps) => {
     return (
         <button
             onClick={handleLanguageChange}
-            className={`${className} ml-4 w-11 h-11 rounded-full bg-primary text-white font-[500] text-xl transition-all duration-300 relative ${isChanging ? 'opacity-0 translate-y-2' : 'opacity-100 translate-y-0'
+            className={`${className} ml-4 w-10 h-10 rounded-full bg-primary text-white font-[500] text-xl transition-all duration-300 relative ${isChanging ? 'opacity-0 translate-y-2' : 'opacity-100 translate-y-0'
                 }`}
             aria-label={`Switch to ${languages[otherLang]}`}
             disabled={isChanging}
