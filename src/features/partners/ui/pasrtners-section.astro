@@ -45,11 +45,11 @@ const logos = await Astro.glob("../../../../public/images/logos/*").then(
               class="transition-opacity hover:opacity-75"
             >
               <div class="mx-8">
-                <Image
+                {/* <Image
                   src={logo.src}
                   alt={`Partner logo ${index + 1}`}
                   class="h-20 w-auto object-contain"
-                />
+                /> */}
               </div>
             </a>
           ))
@@ -80,7 +80,7 @@ const logos = await Astro.glob("../../../../public/images/logos/*").then(
   </div>
 
   <div
-    class="hidden lg:flex justify-between self-center items-center gap-8 mt-12"
+    class="hidden lg:flex justify-between w-full self-center items-center gap-8 mt-16"
   >
     {
       logos.map((logo) => (
@@ -88,12 +88,11 @@ const logos = await Astro.glob("../../../../public/images/logos/*").then(
           href={logo.website}
           target="_blank"
           rel="noopener noreferrer"
-          class="flex items-center bg-gray-100 lg:w-48 lg:h-48 xl:w-64 xl:h-64 rounded-lg justify-center transition-opacity hover:opacity-75"
         >
           <Image
             src={logo.src}
             alt="Partner logo"
-            class="h-20 w-auto object-contain"
+            class="h-[120px] gray-logo 2xl:h-40 w-auto object-contain"
           />
         </a>
       ))
