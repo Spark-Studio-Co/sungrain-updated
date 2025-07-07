@@ -58,6 +58,22 @@ export const ui = {
     "about.card4.popup":
       "Sunflower seeds are a valuable product used in the production of oil for both food and feed industries. They are rich in fats, vitamins, and minerals, making them beneficial for humans and animals alike. Sunflower seeds have a hard shell and a nutritious kernel, which is processed to produce oil and other derived products.",
 
+    "about.card5.title": "CORN GRAIN",
+    "about.card5.popup":
+      "Corn grain is one of the most important cereal crops in the world, widely used in food, feed, and industrial applications. Corn grains are rich in carbohydrates, proteins, and essential nutrients, making them an excellent energy source for livestock and poultry. In the food industry, corn is used to produce flour, cereals, and various processed foods. Its high nutritional value and versatility make it a key component in animal feed formulations.",
+
+    "about.card6.title": "SUNFLOWER MEAL",
+    "about.card6.popup":
+      "Sunflower meal is a valuable by-product obtained after oil extraction from sunflower seeds. It is an excellent source of protein, containing 35-40% protein content, making it highly valuable for animal feed. Sunflower meal is rich in amino acids, fiber, and minerals, providing essential nutrients for livestock growth and development. It is widely used in cattle, poultry, and pig feed formulations due to its high digestibility and nutritional value.",
+
+    "about.card7.title": "BUCKWHEAT",
+    "about.card7.popup":
+      "Buckwheat is a nutritious pseudo-cereal crop known for its exceptional health benefits and versatility. Despite its name, buckwheat is not related to wheat and is naturally gluten-free. It is rich in protein, fiber, and essential amino acids, making it valuable for both human consumption and animal feed. Buckwheat grains are used to produce flour for pancakes, noodles, and other food products, while also serving as a nutritious feed ingredient for livestock and poultry.",
+
+    "about.card8.title": "LENTILS",
+    "about.card8.popup":
+      "Lentils are highly nutritious legumes that are an excellent source of plant-based protein, containing 20-25% protein content. They are rich in fiber, iron, folate, and essential amino acids, making them valuable for both human consumption and animal feed. Lentils are drought-resistant crops that improve soil fertility through nitrogen fixation. In the food industry, lentils are used to produce flour, soups, and various processed foods, while also serving as a high-protein feed ingredient for livestock and poultry.",
+
     //Principles Section
     "principles.subtitle": "6 years of experience on the Market",
     "principles.title": "Honesty and quality \nin every grain!",
@@ -151,6 +167,22 @@ export const ui = {
     "about.card4.title": "СЕМЕНА ПОДСОЛНЕЧНИКА",
     "about.card4.popup":
       "Семена подсолнечника - это ценный продукт, используемый для производства масла в пищевой и кормовой промышленности. Они богаты жирами, витаминами и минералами, что делает их полезными как для людей, так и для животных. Семена имеют твердую оболочку и питательное ядро, из которого получают масло и другие переработанные продукты.",
+
+    "about.card5.title": "ЗЕРНО КУКУРУЗЫ",
+    "about.card5.popup":
+      "Зерно кукурузы является одной из важнейших зерновых культур в мире, широко используемой в пищевой, кормовой и промышленной сферах. Зерна кукурузы богаты углеводами, белками и важными питательными веществами, что делает их отличным источником энергии для скота и птицы. В пищевой промышленности кукуруза используется для производства муки, круп и различных переработанных продуктов. Высокая питательная ценность и универсальность делают ее ключевым компонентом в кормовых рационах для животных.",
+
+    "about.card6.title": "ЖМЫХ ПОДСОЛНЕЧНИКА",
+    "about.card6.popup":
+      "Жмых подсолнечника - это ценный побочный продукт, получаемый после извлечения масла из семян подсолнечника. Он является отличным источником белка, содержащим 35-40% белка, что делает его высокоценным для кормления животных. Жмых подсолнечника богат аминокислотами, клетчаткой и минералами, обеспечивая необходимые питательные вещества для роста и развития скота. Он широко используется в рационах крупного рогатого скота, птицы и свиней благодаря высокой усвояемости и питательной ценности.",
+
+    "about.card7.title": "ГРЕЧИХА",
+    "about.card7.popup":
+      "Гречиха - это питательная псевдозерновая культура, известная своими исключительными полезными свойствами и универсальностью. Несмотря на название, гречиха не связана с пшеницей и естественно не содержит глютен. Она богата белком, клетчаткой и незаменимыми аминокислотами, что делает ее ценной как для потребления человеком, так и для кормления животных. Зерна гречихи используются для производства муки для блинов, лапши и других пищевых продуктов, а также служат питательным кормовым ингредиентом для скота и птицы.",
+
+    "about.card8.title": "ЧЕЧЕВИЦА",
+    "about.card8.popup":
+      "Чечевица - это высокопитательная бобовая культура, которая является отличным источником растительного белка, содержащего 20-25% белка. Она богата клетчаткой, железом, фолиевой кислотой и незаменимыми аминокислотами, что делает ее ценной как для потребления человеком, так и для кормления животных. Чечевица - засухоустойчивая культура, которая улучшает плодородие почвы благодаря азотфиксации. В пищевой промышленности чечевица используется для производства муки, супов и различных переработанных продуктов, а также служит высокобелковым кормовым ингредиентом для скота и птицы.",
 
     //Principles Section
     "principles.subtitle": "6 лет опыта на Рынке",
