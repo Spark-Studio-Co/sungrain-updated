@@ -1,6 +1,7 @@
 ---
 import "../styles/fonts.css";
 import "../styles/global.css";
+import StartupLoader from "../shared/ui/loader/startup-loader.astro";
 
 interface Props {
 	title: string;
@@ -64,6 +65,7 @@ const currentLang = Astro.url.pathname.startsWith('/en') ? 'en' : 'ru';
 		<link rel="alternate" hreflang="x-default" href={`${Astro.url.origin}/ru${Astro.url.pathname.replace(/^\/(ru|en)/, '')}`} />
 	</head>
 	<body class="mx-auto">
+		<StartupLoader />
 		<slot />
 		<script>
 			// Register Service Worker
