@@ -17,104 +17,99 @@
     // Create loader HTML
     loader.innerHTML = `
       <div class="text-center">
-        <!-- Main loader animation -->
-        <div class="relative w-40 h-40 mx-auto mb-8">
-          <!-- Rotating sun rays -->
-          <div class="absolute inset-0 animate-spin-slow">
-            <svg width="160" height="160" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <g>
-                <path d="M24 4V8M24 40V44M8 24H4M44 24H40M35.36 12.64L38.18 9.82M9.82 38.18L12.64 35.36M12.64 12.64L9.82 9.82M38.18 38.18L35.36 35.36" stroke="#F38810" stroke-width="2" stroke-linecap="round"/>
-                <circle cx="24" cy="24" r="10" fill="#F38810" stroke="#F38810" stroke-width="2"/>
-                <circle cx="24" cy="24" r="6" fill="none" stroke="rgba(255, 255, 255, 0.3)" stroke-width="1"/>
-              </g>
-            </svg>
-          </div>
-          
-          <!-- Falling grain particles -->
-          <div class="absolute inset-0 animate-grain-fall">
-            <svg width="160" height="160" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <g>
-                <circle cx="12" cy="8" r="1.5" fill="#F38810" opacity="0.8"/>
-                <circle cx="36" cy="12" r="1" fill="#F38810" opacity="0.6"/>
-                <circle cx="8" cy="36" r="1.2" fill="#F38810" opacity="0.7"/>
-                <circle cx="40" cy="36" r="1.3" fill="#F38810" opacity="0.5"/>
-                <circle cx="24" cy="16" r="1.1" fill="#F38810" opacity="0.9"/>
-                <circle cx="16" cy="32" r="1.4" fill="#F38810" opacity="0.6"/>
-                <circle cx="32" cy="28" r="1" fill="#F38810" opacity="0.8"/>
-              </g>
-            </svg>
-          </div>
-          
-          <!-- Central pulsing grain -->
-          <div class="absolute inset-0 flex items-center justify-center">
-            <div class="w-6 h-6 bg-gradient-to-br from-yellow-400 via-orange-500 to-orange-600 rounded-full shadow-lg animate-pulse"></div>
-          </div>
-          
-          <!-- Progress ring -->
-          <div class="absolute inset-0 flex items-center justify-center">
-            <svg class="w-44 h-44 transform -rotate-90" viewBox="0 0 200 200">
-              <circle cx="100" cy="100" r="90" fill="none" stroke="rgba(243, 136, 16, 0.1)" stroke-width="4"/>
-              <circle id="progress-circle" cx="100" cy="100" r="90" fill="none" stroke="#F38810" stroke-width="4" stroke-linecap="round" stroke-dasharray="565.48" stroke-dashoffset="565.48" class="transition-all duration-300 ease-out"/>
-            </svg>
-          </div>
-        </div>
-        
         <!-- Brand section -->
-        <div class="mb-6">
+        <div class="mb-8">
           <h1 class="text-4xl md:text-5xl font-gotham font-black text-[#223137] mb-3 tracking-wide">SUN GRAIN</h1>
+          <p class="text-[#F38810] font-montserrat font-medium text-lg md:text-xl">${window.location.pathname.startsWith('/en') ? 'Quality grain, reliable approach' : 'Качественное зерно, надежный подход'}</p>
         </div>
         
-        <!-- Loading text with animation -->
-        <div class="text-center">
-          <p id="loading-text" class="text-[#223137] font-montserrat font-medium text-base mb-4 animate-pulse">Initializing...</p>
-          
-          <!-- Animated dots -->
-          <div class="flex justify-center space-x-2">
+        <!-- Cultures display -->
+        <div class="max-w-2xl mx-auto">
+          <div id="culture-display" class="text-center h-16 flex items-center justify-center">
+            <div id="culture-text" class="text-[#223137] font-montserrat text-xl md:text-2xl font-medium opacity-0 transform translate-y-2 transition-all duration-500">
+              <!-- Culture will be populated here -->
+            </div>
+          </div>
+        </div>
+        
+        <!-- Loading indicator -->
+        <div class="mt-8 flex justify-center">
+          <div class="flex space-x-1">
             <div class="w-2 h-2 bg-[#F38810] rounded-full animate-bounce"></div>
             <div class="w-2 h-2 bg-[#F38810] rounded-full animate-bounce" style="animation-delay: 0.1s;"></div>
             <div class="w-2 h-2 bg-[#F38810] rounded-full animate-bounce" style="animation-delay: 0.2s;"></div>
           </div>
         </div>
-        
-   
       </div>
     `;
     
     // Add to document
     document.body.appendChild(loader);
     
-    // Progress simulation
-    const progressCircle = document.getElementById('progress-circle');
-    const loadingText = document.getElementById('loading-text');
+    // Culture rotation effect
+    const cultureDisplay = document.getElementById('culture-text');
     
-    const updateProgress = () => {
-      if (progress < 100) {
-        progress += Math.random() * 8 + 2;
-        if (progress > 100) progress = 100;
-        
-        const circumference = 565.48;
-        const offset = circumference - (circumference * progress) / 100;
-        
-        if (progressCircle) {
-          progressCircle.style.strokeDashoffset = offset.toString();
-        }
-        
-        if (loadingText) {
-          if (progress < 30) {
-            loadingText.textContent = 'Initializing...';
-          } else if (progress < 60) {
-            loadingText.textContent = 'Loading resources...';
-          } else if (progress < 90) {
-            loadingText.textContent = 'Preparing content...';
-          } else {
-            loadingText.textContent = 'Almost ready...';
-          }
-        }
+    // List of crops/cultures from the website
+    const crops = [
+      'Soft wheat',
+      'Feed barley', 
+      'Red millet',
+      'Sunflower seeds',
+      'Corn grain',
+      'Sunflower meal',
+      'Buckwheat',
+      'Lentils'
+    ];
+    
+    const cropsCyrillic = [
+      'Пшеница мягкая',
+      'Ячмень кормовой',
+      'Просо красное', 
+      'Семена подсолнечника',
+      'Зерно кукурузы',
+      'Жмых подсолнечника',
+      'Гречиха',
+      'Чечевица'
+    ];
+    
+    // Determine current language from URL
+    const currentLang = window.location.pathname.startsWith('/en') ? 'en' : 'ru';
+    const currentCrops = currentLang === 'en' ? crops : cropsCyrillic;
+    
+    let currentCultureIndex = 0;
+    
+    function showNextCulture() {
+      if (currentCultureIndex >= currentCrops.length) {
+        currentCultureIndex = 0; // Loop back to first culture
       }
-    };
+      
+      const currentCulture = currentCrops[currentCultureIndex];
+      
+      if (cultureDisplay) {
+        // Fade out current culture
+        cultureDisplay.style.opacity = '0';
+        cultureDisplay.style.transform = 'translateY(10px)';
+        
+        setTimeout(() => {
+          // Update text and fade in
+          cultureDisplay.textContent = currentCulture;
+          cultureDisplay.style.opacity = '1';
+          cultureDisplay.style.transform = 'translateY(0)';
+        }, 250);
+      }
+      
+      currentCultureIndex++;
+    }
     
-    // Update progress every 100ms
-    const progressInterval = setInterval(updateProgress, 100);
+    // Start with first culture
+    setTimeout(() => {
+      showNextCulture();
+    }, 500);
+    
+    // Show next culture every 2 seconds
+    const cultureInterval = setInterval(() => {
+      showNextCulture();
+    }, 2000);
     
     // Wait for page load and minimum display time
     let pageLoaded = false;
@@ -128,12 +123,12 @@
     setTimeout(() => {
       minTimeElapsed = true;
       checkComplete();
-    }, 1500); // Minimum 1.5 seconds display time
+    }, 2500); // Minimum 2.5 seconds display time to see all cultures
     
     function checkComplete() {
-      if (pageLoaded && minTimeElapsed && progress >= 100) {
-        clearInterval(progressInterval);
-        
+      if (pageLoaded && minTimeElapsed) {
+        // Clear the culture interval
+        clearInterval(cultureInterval);
         // Fade out
         loader.style.opacity = '0';
         setTimeout(() => {
@@ -146,7 +141,6 @@
     
     // Force completion after 3 seconds
     setTimeout(() => {
-      progress = 100;
       pageLoaded = true;
       minTimeElapsed = true;
       checkComplete();
